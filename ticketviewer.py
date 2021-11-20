@@ -1,20 +1,57 @@
-import requests
-from requests.auth import HTTPBasicAuth
-
-import errormacros
+from printer import printer
+import modes
 
 
-url = "https://zccakashmalode.zendesk.com/api/v2/tickets.json"
+def displayInitialMessage():
+    printer.display_initial_message()
 
-user = "amalode@purdue.edu/token"
-pwd = "KCghGkIuanNLONrTjn6UuoCNr79VhqUR7koXjrG1"
 
-response = requests.get(url, auth=(user, pwd))
+def initializeTicketViewer():
 
-if response.status_code != errormacros.GET_SUCCESS_CODE:
-    print("Status Code:", response.status_code, "Unable to execute GET request.")
-    exit()
+    # Display initial welcome message
+    # Display outer menu
+    # 1 --> View all tickets
+    # 2 --> View individual ticket
 
-data = response.json()
+    # If inside some menu
+    # If inside "individual ticket"
+    # nothing extra
+    # If inside "view all tickets"
+    # If number of tickets > 25
+    # menu should be "next page", "prev page", "main menu"
 
-print(data["tickets"][0]["subject"])
+    # Program just began. Should start with main menu mode
+    mode = modes.Modes()
+
+    while True:
+
+        # print("current mode: ", mode.CURRENT_MODE)
+        # print("main menu mode: ", modes.MODE_MAIN_MENU)
+
+        if mode.CURRENT_MODE == modes.MODE_MAIN_MENU:
+            # Display main menu
+            printer.display_main_menu()
+
+            # Get user input (menu selection)
+            user_input = input("Select an option from the menu above: ")
+
+            # Validate user input is one of the options provided
+            if !modes.validateModeSelection(user_input):
+                printer.display_invalid_input()
+                continue
+
+            # Change mode based on user_input
+            mode.changeMode(int(user_input))
+
+            print(mode.CURRENT_MODE)
+        
+        elif mode.CURRENT_MODE == modes.MODE_ALL_TICKETS:
+        
+        elif mode.CURRENT_MODE == modes.MODE_SELECTED_TICKET:
+            
+        elif 
+
+
+if __name__ == "__main__":
+    displayInitialMessage()
+    initializeTicketViewer()

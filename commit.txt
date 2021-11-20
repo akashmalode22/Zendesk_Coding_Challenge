@@ -1,6 +1,6 @@
-Connect to Zendesk API and define ERROR macros
+Define main loop with mode selection
 
 This commit:
- - Connects to the Zendesk API with an API token (not password)
- - Retrieves all tickets on the Zendesk account
- - Defines all ERROR macros to verify successful GET requests
+ - Defines the main running loop of the ticket viewer
+ - Defines a printer class to print variety of messages
+ - Defines a mode class that validates the current mode selected, and changes the mode
