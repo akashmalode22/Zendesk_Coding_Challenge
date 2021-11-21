@@ -1,5 +1,5 @@
-Retrieve next page with the next 25 tickets
+BUG FIX: Asking for next page with only 1 ticket remaining
 
 This commit:
- - Refactors MODE_PAGINATION execution
- - Allows for displaying next page of the next 25 tickets
+ - Detects whether the next page to be shown will only have 1 ticket
+ - Does a separate URL GET request for the 1 ticket

@@ -83,7 +83,11 @@ class RetrieveTickets:
         # Convert integer list to string list
         ids = [str(id) for id in ids]
 
-        url = self.generateURL("/show_many?ids=" + ",".join(ids))
+        url = ""
+        if len(ids) == 1:
+            url = self.generateURL("/" + ids[0])
+        else:
+            url = self.generateURL("/show_many?ids=" + ",".join(ids))
 
         [user, pwd] = self.getCredentials()
 
@@ -96,7 +100,11 @@ class RetrieveTickets:
             exit()
 
         data = response.json()
-        return [data["tickets"], end_id - start_id + 1]
+
+        if len(ids) == 1:
+            return [data["ticket"], end_id - start_id + 1]
+        else:
+            return [data["tickets"], end_id - start_id + 1]
 
     def pageTickets(self, mode):
 

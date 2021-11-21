@@ -43,16 +43,27 @@ class Printer:
     def displayAllTicketsInfo(tickets, number_of_tickets):
         modified_tickets = []
 
-        for i in range(0, number_of_tickets):
-
+        if number_of_tickets == 1:
             single_ticket = [
-                tickets[i]["id"],
-                tickets[i]["subject"],
-                tickets[i]["requester_id"],
-                tickets[i]["created_at"],
+                tickets["id"],
+                tickets["subject"],
+                tickets["requester_id"],
+                tickets["created_at"],
             ]
 
             modified_tickets.append(single_ticket)
+
+        else:
+            for i in range(0, number_of_tickets):
+
+                single_ticket = [
+                    tickets[i]["id"],
+                    tickets[i]["subject"],
+                    tickets[i]["requester_id"],
+                    tickets[i]["created_at"],
+                ]
+
+                modified_tickets.append(single_ticket)
 
         print(tabulate(modified_tickets, headers=["ID", "Subject", "By", "Dated"]))
         print()
