@@ -56,7 +56,6 @@ class RetrieveTickets:
     def getAllTicketsNoPagination(self):
 
         url = self.generateURL("")
-        print("URL: " + url)
         [user, pwd] = self.getCredentials()
 
         response = requests.get(url, auth=(user, pwd))
@@ -70,6 +69,33 @@ class RetrieveTickets:
         data = response.json()
 
         return [data["tickets"], self.number_of_tickets]
+
+    def getTicketsInRange(self, start_id, end_id):
+
+        self.getNumberOfTickets()
+
+        # Store required ticket IDs in an integer list
+        ids = []
+        for i in range(start_id, end_id + 1):
+            ids.append(i)
+
+        # Convert integer list to string list
+        ids = [str(id) for id in ids]
+
+        url = self.generateURL("/show_many?ids=" + ",".join(ids))
+
+        [user, pwd] = self.getCredentials()
+
+        response = requests.get(url, auth=(user, pwd))
+
+        if response.status_code != 200:
+            print(
+                "Status Code:", response.status_code, "Unable to execute GET request."
+            )
+            exit()
+
+        data = response.json()
+        return [data["tickets"], end_id - start_id + 1]
 
     # def getAllTickets(self):
 
