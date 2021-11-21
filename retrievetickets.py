@@ -4,6 +4,9 @@ import errormacros
 
 
 class RetrieveTickets:
+
+    number_of_tickets = 0
+
     def generateURL(self, url_sublink):
         return (
             "https://zccakashmalode.zendesk.com/api/v2/tickets/" + url_sublink + ".json"
@@ -15,7 +18,21 @@ class RetrieveTickets:
 
         return [user, pwd]
 
-    # def getNumberOfTickets():
+    def getNumberOfTickets(self):
+        url = self.generateURL("count")
+        [user, pwd] = self.getCredentials()
+
+        response = requests.get(url, auth=(user, pwd))
+
+        if response.status_code != 200:
+            print(
+                "Status Code:", response.status_code, "Unable to execute GET request."
+            )
+            exit()
+
+        data = response.json()
+
+        self.number_of_tickets = data["count"]["value"]
 
     def getTicketByID(self, ticket_id):
 

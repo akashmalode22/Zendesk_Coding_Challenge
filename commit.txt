@@ -1,5 +1,6 @@
-Abstracted Login Credentials and URL generation
+Receive total number of tickets
 
 This commit:
- - Separates Login Credentials retrieval
- - Creates a function to generate specific URL for GET requests
+ - Modifies the URL to /api/v2/tickets/count.json
+ - Updates the class variable to include the retrieved count
+ - This count is used to determine how many tickets to show during "show all tickets"

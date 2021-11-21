@@ -17,9 +17,6 @@ def initializeTicketViewer():
     # If number of tickets > 25
     # menu should be "next page", "prev page", "main menu"
 
-    # Initialize number of tickets
-    ticket_count = 0
-
     # Program just began. Should start with main menu mode
     mode = modes.Modes()
     retriever = retrievetickets.RetrieveTickets()
@@ -36,7 +33,8 @@ def initializeTicketViewer():
             Printer.displayMainMenu()
 
             # Retrieve number of tickets on Zendesk
-            # ticket_count = retriever.getNumberOfTickets()
+            retriever.getNumberOfTickets()
+            print("Ticket count Update:", retriever.number_of_tickets)
 
             # Get user input (menu selection)
             user_input = input("Select an option from the menu above: ")
