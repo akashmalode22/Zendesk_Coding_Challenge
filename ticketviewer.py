@@ -32,10 +32,6 @@ def initializeTicketViewer():
             # Display main menu
             Printer.displayMainMenu()
 
-            # Retrieve number of tickets on Zendesk
-            retriever.getNumberOfTickets()
-            print("Ticket count Update:", retriever.number_of_tickets)
-
             # Get user input (menu selection)
             user_input = input("Select an option from the menu above: ")
 
@@ -54,6 +50,9 @@ def initializeTicketViewer():
         elif mode.CURRENT_MODE == modes.MODE_ALL_TICKETS:
             # Display all tickets message
             Printer.displayAllTicketsMessage()
+
+            # Invoke the getAllTickets function
+            retriever.getAllTickets()
 
         elif mode.CURRENT_MODE == modes.MODE_SELECTED_TICKET:
 

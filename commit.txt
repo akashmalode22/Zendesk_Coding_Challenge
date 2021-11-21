@@ -1,6 +1,5 @@
-Receive total number of tickets
+Construct GET URL for 25 tickets
 
 This commit:
- - Modifies the URL to /api/v2/tickets/count.json
- - Updates the class variable to include the retrieved count
- - This count is used to determine how many tickets to show during "show all tickets"
+ - Manipulates a list of ticket IDs from 1 to 25
+ - Generates a URL with the IDs list constructed

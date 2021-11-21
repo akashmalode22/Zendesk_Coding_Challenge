@@ -50,3 +50,17 @@ class RetrieveTickets:
         data = response.json()
 
         return data
+
+    def getAllTickets(self):
+
+        # Get number of tickets
+        self.getNumberOfTickets()
+
+        ids = []
+
+        for i in range(1, 26):
+            ids.append(i)
+
+        ids = [str(id) for id in ids]
+        url = self.generateURL("show_many?ids=" + ",".join(ids))
+        print("new url:", url)
