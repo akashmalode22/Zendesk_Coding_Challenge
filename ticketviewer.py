@@ -1,5 +1,6 @@
 from printer import Printer
 import modes
+import retrievetickets
 
 
 def initializeTicketViewer():
@@ -18,6 +19,7 @@ def initializeTicketViewer():
 
     # Program just began. Should start with main menu mode
     mode = modes.Modes()
+    retriever = retrievetickets.RetrieveTickets()
 
     Printer.displayInitialMessage()
 
@@ -56,6 +58,12 @@ def initializeTicketViewer():
 
             # Display selected ticket message
             Printer.displaySelectedTicketMessage(user_input_ticket_number)
+
+            # Get ticket data from server, store in variable
+            ticket = retriever.getTicketByID(user_input_ticket_number)
+
+            # Display ticket information
+            print(ticket)
 
         # elif
 

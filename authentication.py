@@ -4,7 +4,7 @@ from requests.auth import HTTPBasicAuth
 import errormacros
 
 
-url = "https://zccakashmalode.zendesk.com/api/v2/tickets.json"
+url = "https://zccakashmalode.zendesk.com/api/v2/tickets/2.json"
 
 user = "amalode@purdue.edu/token"
 pwd = "KCghGkIuanNLONrTjn6UuoCNr79VhqUR7koXjrG1"
@@ -17,4 +17,4 @@ if response.status_code != errormacros.GET_SUCCESS_CODE:
 
 data = response.json()
 
-print(data["tickets"][0]["subject"])
+print(data["ticket"]["subject"])
