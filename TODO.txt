@@ -1,0 +1,9 @@
+I have the main loop working now.
+
+Implement each of the modes now.
+    Start with displaying 1 ticket
+        Retrieve the huge json
+        Put into objects in list
+        Sort list objects based on ticket number
+        You can just get the ticket # based on the list index
+        Display this ticket

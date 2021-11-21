@@ -1,6 +1,4 @@
-BUG FIX: User Mode Validation
+Fix Naming Convention for the Printer class
 
 This commit:
- - Fixes a bug in validating the user main menu selection
- - Defines the rest of the modes
- - Adds new printing functions for the respective mode options
+ - Fixes the naming convention used in the Printer class

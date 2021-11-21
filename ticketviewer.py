@@ -1,4 +1,4 @@
-from printer import printer
+from printer import Printer
 import modes
 
 
@@ -19,6 +19,8 @@ def initializeTicketViewer():
     # Program just began. Should start with main menu mode
     mode = modes.Modes()
 
+    Printer.displayInitialMessage()
+
     while True:
 
         # print("current mode: ", mode.CURRENT_MODE)
@@ -26,18 +28,18 @@ def initializeTicketViewer():
 
         if mode.CURRENT_MODE == modes.MODE_MAIN_MENU:
             # Display main menu
-            printer.displayMainMenu()
+            Printer.displayMainMenu()
 
             # Get user input (menu selection)
             user_input = input("Select an option from the menu above: ")
 
             # Validate user input is one of the options provided
             if not mode.validateModeSelection(user_input):
-                printer.displayInvalidInput()
+                Printer.displayInvalidInput()
                 continue
 
             if mode.exit(user_input):
-                printer.displayExitMessage()
+                Printer.displayExitMessage()
                 break
 
             # Change mode based on user_input
@@ -45,7 +47,7 @@ def initializeTicketViewer():
 
         elif mode.CURRENT_MODE == modes.MODE_ALL_TICKETS:
             # Display all tickets message
-            printer.displayAllTicketsMessage()
+            Printer.displayAllTicketsMessage()
 
         elif mode.CURRENT_MODE == modes.MODE_SELECTED_TICKET:
 
@@ -53,11 +55,10 @@ def initializeTicketViewer():
             user_input_ticket_number = input("Enter a ticket number: ")
 
             # Display selected ticket message
-            printer.displaySelectedTicketMessage(user_input_ticket_number)
+            Printer.displaySelectedTicketMessage(user_input_ticket_number)
 
         # elif
 
 
 if __name__ == "__main__":
-    printer.displayInitialMessage()
     initializeTicketViewer()

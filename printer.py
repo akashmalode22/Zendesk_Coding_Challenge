@@ -1,4 +1,4 @@
-class printer:
+class Printer:
     def displayInitialMessage():
         print("\n\n***** Welcome to the Zendesk Ticket Viewer *****\n")
 
