@@ -4,11 +4,23 @@ import errormacros
 
 
 class RetrieveTickets:
-    def getTicketByID(self, ticket_id):
+    def generateURL(self, url_sublink):
+        return (
+            "https://zccakashmalode.zendesk.com/api/v2/tickets/" + url_sublink + ".json"
+        )
 
-        url = "https://zccakashmalode.zendesk.com/api/v2/tickets/" + ticket_id + ".json"
+    def getCredentials(self):
         user = "amalode@purdue.edu/token"
         pwd = "KCghGkIuanNLONrTjn6UuoCNr79VhqUR7koXjrG1"
+
+        return [user, pwd]
+
+    # def getNumberOfTickets():
+
+    def getTicketByID(self, ticket_id):
+
+        url = self.generateURL(ticket_id)
+        [user, pwd] = self.getCredentials()
 
         response = requests.get(url, auth=(user, pwd))
 
