@@ -10,6 +10,9 @@ class RetrieveTickets:
     number_of_tickets = 0
     last_ticket_shown = 0
 
+    start_id = 0
+    end_id = 0
+
     def generateURL(self, url_sublink):
         return (
             "https://zccakashmalode.zendesk.com/api/v2/tickets" + url_sublink + ".json"
@@ -138,10 +141,29 @@ class RetrieveTickets:
 
             if user_input == "n":
 
-                start_id = self.last_ticket_shown + 1
-                end_id = min(self.last_ticket_shown + 25, self.number_of_tickets)
+                self.start_id = self.last_ticket_shown + 1
+                self.end_id = min(self.last_ticket_shown + 25, self.number_of_tickets)
 
-                [tickets, number_of_tickets] = self.getTicketsInRange(start_id, end_id)
-                self.last_ticket_shown = end_id
+                [tickets, number_of_tickets] = self.getTicketsInRange(
+                    self.start_id, self.end_id
+                )
+                self.last_ticket_shown = self.end_id
+
+                Printer.displayAllTicketsInfo(tickets, number_of_tickets)
+
+            if user_input == "p":
+
+                self.start_id = self.start_id - 25
+
+                if self.end_id % 25 != 0:
+                    offset = self.end_id % 25
+                    self.end_id = self.end_id - offset
+                else:
+                    self.end_id = self.end_id - 25
+
+                [tickets, number_of_tickets] = self.getTicketsInRange(
+                    self.start_id, self.end_id
+                )
+                self.last_ticket_shown = self.end_id
 
                 Printer.displayAllTicketsInfo(tickets, number_of_tickets)

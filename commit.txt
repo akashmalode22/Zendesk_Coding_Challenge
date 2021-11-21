@@ -1,5 +1,7 @@
-Refactor Ticket Paging Loop
+Retrieve previous page with 25 tickets
 
 This commit:
- - Refactors the while loop to page tickets
- - Allows the user to view a selected ticket but stay in MODE_PAGINATION
+ - Implements retrieving the previous page of 25 tickets
+ - Takes care of when the last page has less than 25 tickets
+ - Calculates an offset (using mod 25) to set start_id and end_id to display
+   appropriate number of tickets on previous page
