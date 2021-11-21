@@ -11,12 +11,15 @@ class Modes:
         if user_input == "q" or user_input == "quit":
             return True
 
-        user_option = int(user_input)
-
-        if user_input == 1 or user_input == 2:
+        elif user_input == "0" or user_input == "1" or user_input == "2":
             return True
 
         return False
 
     def changeMode(self, user_input):
         Modes.CURRENT_MODE = user_input
+
+    def exit(self, user_input):
+        if user_input == "q" or user_input == "quit":
+            return True
+        return False

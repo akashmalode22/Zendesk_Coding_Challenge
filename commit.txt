@@ -1,6 +1,6 @@
-Define main loop with mode selection
+BUG FIX: User Mode Validation
 
 This commit:
- - Defines the main running loop of the ticket viewer
- - Defines a printer class to print variety of messages
- - Defines a mode class that validates the current mode selected, and changes the mode
+ - Fixes a bug in validating the user main menu selection
+ - Defines the rest of the modes
+ - Adds new printing functions for the respective mode options
