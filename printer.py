@@ -1,3 +1,6 @@
+from tabulate import tabulate
+
+
 class Printer:
     def displayInitialMessage():
         print("\n\n***** Welcome to the Zendesk Ticket Viewer *****\n")
@@ -36,3 +39,19 @@ class Printer:
         print(
             "------------------------------------------------------------------------\n"
         )
+
+    def displayAllTicketsInfo(tickets, number_of_tickets):
+        modified_tickets = []
+
+        for i in range(0, 25):
+
+            single_ticket = [
+                tickets[i]["id"],
+                tickets[i]["subject"],
+                tickets[i]["requester_id"],
+                tickets[i]["created_at"],
+            ]
+
+            modified_tickets.append(single_ticket)
+
+        print(tabulate(modified_tickets, headers=["ID", "Subject", "By", "Dated"]))

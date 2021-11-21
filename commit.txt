@@ -1,5 +1,12 @@
-Construct GET URL for 25 tickets
+Tabulate first 25 tickets (to show all tickets)
 
 This commit:
- - Manipulates a list of ticket IDs from 1 to 25
- - Generates a URL with the IDs list constructed
+ - Introduces 2 new modes: MODE_PAGINATION and MODE_NO_PAGINATION
+ - The mode selected depends on whether the number of tickets exceeds 25
+ - Uses the tabulate library to print the first 25 tickets (out of 101 tickets)
+
+TODO:
+ - Revert mode.changeMode() when calculating number of tickets
+ - Restructure displayAllTicketsInfo() to execute based on
+    - number_of_tickets
+    - last_ticket_shown

@@ -51,8 +51,13 @@ def initializeTicketViewer():
             # Display all tickets message
             Printer.displayAllTicketsMessage()
 
-            # Invoke the getAllTickets function
-            retriever.getAllTickets()
+            # Get the number of tickets
+            retriever.getNumberOfTickets()
+
+            if retriever.number_of_tickets < 25:
+                mode.changeMode(modes.MODE_NO_PAGINATION)
+            elif retriever.number_of_tickets >= 25:
+                mode.changeMode(modes.MODE_NO_PAGINATION)
 
         elif mode.CURRENT_MODE == modes.MODE_SELECTED_TICKET:
 
@@ -68,7 +73,14 @@ def initializeTicketViewer():
             # Switch back to main menu mode
             mode.changeMode(modes.MODE_MAIN_MENU)
 
-        # elif
+        elif mode.CURRENT_MODE == modes.MODE_NO_PAGINATION:
+
+            # We have fewer than 25 total tickets. Just display them all
+            [tickets, number_of_tickets] = retriever.getAllTicketsNoPagination()
+
+            Printer.displayAllTicketsInfo(tickets, number_of_tickets)
+
+            exit()
 
 
 if __name__ == "__main__":
