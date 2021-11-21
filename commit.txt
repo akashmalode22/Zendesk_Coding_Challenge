@@ -1,7 +1,12 @@
-Retrieve previous page with 25 tickets
+COMPLETED: Features Implementation
 
 This commit:
- - Implements retrieving the previous page of 25 tickets
- - Takes care of when the last page has less than 25 tickets
- - Calculates an offset (using mod 25) to set start_id and end_id to display
-   appropriate number of tickets on previous page
+ - Marks the end of all required features implementation
+
+TODO:
+ - Format all Printer class functions (better spacing)
+ - Refactor mode changing logic
+ - Refactor offset implementation for previous page retrieval
+ - Refactor all calls for URL generator and authentication
+ - Handle basic errors
+ - Include tests
