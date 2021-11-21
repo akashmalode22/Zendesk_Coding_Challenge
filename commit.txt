@@ -1,6 +1,5 @@
-Retrieve tickets in a range (by ID)
+Retrieve next page with the next 25 tickets
 
 This commit:
- - Initializes a skeleton for MODE_PAGINATION
- - Introduces a getTicketsInRange() method to retrieve a ticket with a start and end ID (sequentially)
- - Uses the tabulate library to print the tickets of the range of IDs selected
+ - Refactors MODE_PAGINATION execution
+ - Allows for displaying next page of the next 25 tickets

@@ -86,8 +86,11 @@ def initializeTicketViewer():
 
             # Get 25 tickets at a time
             [tickets, number_of_tickets] = retriever.getTicketsInRange(1, 25)
+            retriever.last_ticket_shown = 25
 
             Printer.displayAllTicketsInfo(tickets, number_of_tickets)
+
+            retriever.pageTickets(mode)
 
 
 if __name__ == "__main__":

@@ -2,6 +2,7 @@ import requests
 from requests.auth import HTTPBasicAuth
 import errormacros
 import modes
+from printer import Printer
 
 
 class RetrieveTickets:
@@ -97,31 +98,39 @@ class RetrieveTickets:
         data = response.json()
         return [data["tickets"], end_id - start_id + 1]
 
-    # def getAllTickets(self):
+    def pageTickets(self, mode):
 
-    #     # Get number of tickets
-    #     self.getNumberOfTickets()
+        Printer.displayPaginationMenu()
 
-    #     if self.number_of_tickets < 25:
+        # Get user input (menu selection)
+        user_input = input("Select an option from the menu above: ")
 
-    #     ids = []
+        if mode.exit(user_input):
+            Printer.displayExitMessage()
+            exit()
 
-    #     for i in range(1, 26):
-    #         ids.append(i)
+        if user_input == "s":
+            mode.changeMode(modes.MODE_SELECTED_TICKET)
+            return
 
-    #     ids = [str(id) for id in ids]
-    #     url = self.generateURL("show_many?ids=" + ",".join(ids))
+        if user_input == "m":
+            mode.changeMode(modes.MODE_MAIN_MENU)
+            return
 
-    #     [user, pwd] = self.getCredentials()
+        if user_input == "n":
 
-    #     response = requests.get(url, auth=(user, pwd))
+            while mode.CURRENT_MODE == modes.MODE_PAGINATION:
 
-    #     if response.status_code != 200:
-    #         print(
-    #             "Status Code:", response.status_code, "Unable to execute GET request."
-    #         )
-    #         exit()
+                start_id = self.last_ticket_shown + 1
+                end_id = min(self.last_ticket_shown + 25, self.number_of_tickets)
 
-    #     data = response.json()
-    #     print(data)
-    #     print("New count for page:", data["count"])
+                self.last_ticket_shown = end_id
+                [tickets, number_of_tickets] = self.getTicketsInRange(start_id, end_id)
+                self.last_ticket_shown = end_id
+
+                Printer.displayAllTicketsInfo(tickets, number_of_tickets)
+
+                Printer.displayPaginationMenu()
+
+                # Get user input (menu selection)
+                user_input = input("Select an option from the menu above: ")

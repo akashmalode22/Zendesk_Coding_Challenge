@@ -56,3 +56,13 @@ class Printer:
 
         print(tabulate(modified_tickets, headers=["ID", "Subject", "By", "Dated"]))
         print()
+
+    def displayPaginationMenu():
+        print("\tPagination Menu:")
+        print('\t--Press "n" to view next page')
+        print('\t--Press "p" to view previous page')
+        print('\t--Press "s" to view a selected ticket')
+        print('\t--Press "m" to go to main menu')
+        print('\t--Press "q" or type "quit" to quit')
+
+        print()
