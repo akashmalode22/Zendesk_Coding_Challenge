@@ -1,4 +1,5 @@
-Fix Naming Convention for the Printer class
+Add RetrieveTickets class
 
 This commit:
- - Fixes the naming convention used in the Printer class
+ - Adds a RetrieveTickets class
+ - Does a test run with modified URL to get a single ticket by ID

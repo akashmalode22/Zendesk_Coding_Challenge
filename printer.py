@@ -22,3 +22,17 @@ class Printer:
         print("\n********************************************************")
         print("Thank you for using the Zendesk Ticket Viewer! Bye.")
         print("********************************************************\n")
+
+    def displayTicketInfo(ticket):
+        print("Displaying ticket #", ticket["ticket"]["id"], "...\n")
+        print(
+            "------------------------------------------------------------------------"
+        )
+        print("Ticket ID:", ticket["ticket"]["id"])
+        print("Subject: " + ticket["ticket"]["subject"])
+        print("Description: " + ticket["ticket"]["description"])
+        print("Requested by:", ticket["ticket"]["requester_id"])
+        print("Tags:", ticket["ticket"]["tags"])
+        print(
+            "------------------------------------------------------------------------\n"
+        )

@@ -56,14 +56,11 @@ def initializeTicketViewer():
             # Get user input for ticket number
             user_input_ticket_number = input("Enter a ticket number: ")
 
-            # Display selected ticket message
-            Printer.displaySelectedTicketMessage(user_input_ticket_number)
-
             # Get ticket data from server, store in variable
             ticket = retriever.getTicketByID(user_input_ticket_number)
 
             # Display ticket information
-            print(ticket)
+            Printer.displayTicketInfo(ticket)
 
         # elif
 
