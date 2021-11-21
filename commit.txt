@@ -1,5 +1,4 @@
-Add RetrieveTickets class
+Switch to Main Menu mode after serving a single ticket
 
 This commit:
- - Adds a RetrieveTickets class
- - Does a test run with modified URL to get a single ticket by ID
+ - Switches the current mode to the MAIN_MENU mode

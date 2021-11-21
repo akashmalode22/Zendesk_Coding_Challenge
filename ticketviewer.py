@@ -62,6 +62,9 @@ def initializeTicketViewer():
             # Display ticket information
             Printer.displayTicketInfo(ticket)
 
+            # Switch back to main menu mode
+            mode.changeMode(modes.MODE_MAIN_MENU)
+
         # elif
 
 
