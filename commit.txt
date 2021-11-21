@@ -1,5 +1,5 @@
-BUG FIX: Asking for next page with only 1 ticket remaining
+Refactor Ticket Paging Loop
 
 This commit:
- - Detects whether the next page to be shown will only have 1 ticket
- - Does a separate URL GET request for the 1 ticket
+ - Refactors the while loop to page tickets
+ - Allows the user to view a selected ticket but stay in MODE_PAGINATION

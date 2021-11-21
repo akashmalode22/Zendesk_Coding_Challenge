@@ -108,37 +108,40 @@ class RetrieveTickets:
 
     def pageTickets(self, mode):
 
-        Printer.displayPaginationMenu()
+        while mode.CURRENT_MODE == modes.MODE_PAGINATION:
 
-        # Get user input (menu selection)
-        user_input = input("Select an option from the menu above: ")
+            Printer.displayPaginationMenu()
 
-        if mode.exit(user_input):
-            Printer.displayExitMessage()
-            exit()
+            # Get user input (menu selection)
+            user_input = input("Select an option from the menu above: ")
 
-        if user_input == "s":
-            mode.changeMode(modes.MODE_SELECTED_TICKET)
-            return
+            if mode.exit(user_input):
+                Printer.displayExitMessage()
+                exit()
 
-        if user_input == "m":
-            mode.changeMode(modes.MODE_MAIN_MENU)
-            return
+            if user_input == "s":
 
-        if user_input == "n":
+                # Get user input for ticket number
+                user_input_ticket_number = input("Enter a ticket number: ")
 
-            while mode.CURRENT_MODE == modes.MODE_PAGINATION:
+                # Get ticket data from server, store in variable
+                ticket = self.getTicketByID(user_input_ticket_number)
+
+                # Display ticket information
+                Printer.displayTicketInfo(ticket)
+
+                continue
+
+            if user_input == "m":
+                mode.changeMode(modes.MODE_MAIN_MENU)
+                return
+
+            if user_input == "n":
 
                 start_id = self.last_ticket_shown + 1
                 end_id = min(self.last_ticket_shown + 25, self.number_of_tickets)
 
-                self.last_ticket_shown = end_id
                 [tickets, number_of_tickets] = self.getTicketsInRange(start_id, end_id)
                 self.last_ticket_shown = end_id
 
                 Printer.displayAllTicketsInfo(tickets, number_of_tickets)
-
-                Printer.displayPaginationMenu()
-
-                # Get user input (menu selection)
-                user_input = input("Select an option from the menu above: ")
