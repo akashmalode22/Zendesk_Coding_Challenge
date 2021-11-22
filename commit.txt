@@ -1,5 +1,6 @@
-Refactor: handleAllTicketsMode
+Refactor: main.py
 
 This commit:
- - Seaprates flow logic for handling the all tickets mode into the modes class
- - Provides better readability for the main function
+ - Completely refactors main.py for increased readability
+ - Seaprates flow logic for handling all modes into the "modes" class
+ - Creates a new utils file to handle any object creation for relevant classes
