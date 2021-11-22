@@ -1,6 +1,5 @@
-Refactor: main.py and handleMainMenu()
+Refactor: handleAllTicketsMode
 
 This commit:
- - Renames ticketviewer.py to main.py to recognize starting point of the program
- - Refactors all handling of Main Menu into a mode.method()
- - Cleans main.py for better readability
+ - Seaprates flow logic for handling the all tickets mode into the modes class
+ - Provides better readability for the main function

@@ -15,24 +15,13 @@ def initializeTicketViewer():
 
     while True:
 
-        # print("current mode: ", mode.CURRENT_MODE)
-        # print("main menu mode: ", modes.MODE_MAIN_MENU)
-
         if mode.CURRENT_MODE == modes.MODE_MAIN_MENU:
 
-            mode.handleMainMenu()
+            mode.handleMainMenuMode()
 
         elif mode.CURRENT_MODE == modes.MODE_ALL_TICKETS:
-            # Display all tickets message
-            Printer.displayAllTicketsMessage()
 
-            # Get the number of tickets
-            retriever.getNumberOfTickets()
-
-            if retriever.number_of_tickets < 25:
-                mode.changeMode(modes.MODE_NO_PAGINATION)
-            elif retriever.number_of_tickets >= 25:
-                mode.changeMode(modes.MODE_PAGINATION)
+            mode.handleAllTicketsMode(retriever)
 
         elif mode.CURRENT_MODE == modes.MODE_SELECTED_TICKET:
 

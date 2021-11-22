@@ -28,7 +28,7 @@ class Modes:
             return True
         return False
 
-    def handleMainMenu(self):
+    def handleMainMenuMode(self):
         # Display main menu
         Printer.displayMainMenu()
 
@@ -46,5 +46,22 @@ class Modes:
 
         # Change mode based on user_input
         self.changeMode(int(user_input))
+
+        return
+
+    def handleAllTicketsMode(self, retriever):
+
+        # Display all tickets message
+        Printer.displayAllTicketsMessage()
+
+        # Get the number of tickets
+        retriever.getNumberOfTickets()
+
+        # Determine if we need to page through tickets based
+        # on the total number of tickets available
+        if retriever.number_of_tickets < 25:
+            self.changeMode(MODE_NO_PAGINATION)
+        elif retriever.number_of_tickets >= 25:
+            self.changeMode(MODE_PAGINATION)
 
         return
