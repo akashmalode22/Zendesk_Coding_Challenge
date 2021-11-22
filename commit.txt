@@ -1,12 +1,6 @@
-COMPLETED: Features Implementation
+Refactor: main.py and handleMainMenu()
 
 This commit:
- - Marks the end of all required features implementation
-
-TODO:
- - Format all Printer class functions (better spacing)
- - Refactor mode changing logic
- - Refactor offset implementation for previous page retrieval
- - Refactor all calls for URL generator and authentication
- - Handle basic errors
- - Include tests
+ - Renames ticketviewer.py to main.py to recognize starting point of the program
+ - Refactors all handling of Main Menu into a mode.method()
+ - Cleans main.py for better readability

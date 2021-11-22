@@ -1,3 +1,5 @@
+from printer import Printer
+
 MODE_MAIN_MENU = 0
 MODE_ALL_TICKETS = 1
 MODE_SELECTED_TICKET = 2
@@ -25,3 +27,24 @@ class Modes:
         if user_input == "q" or user_input == "quit":
             return True
         return False
+
+    def handleMainMenu(self):
+        # Display main menu
+        Printer.displayMainMenu()
+
+        # Get user input (menu selection)
+        user_input = input("Select an option from the menu above: ")
+
+        # Validate user input is one of the options provided
+        if not self.validateModeSelection(user_input):
+            Printer.displayInvalidInput()
+            return
+
+        if self.exit(user_input):
+            Printer.displayExitMessage()
+            exit()
+
+        # Change mode based on user_input
+        self.changeMode(int(user_input))
+
+        return

@@ -16,7 +16,7 @@ class Printer:
         print("Invalid option selected. Ignoring user input...\n")
 
     def displayAllTicketsMessage():
-        print("Displaying all tickets ...\n")
+        print("Displaying all tickets. Please wait while we fetch them...\n")
 
     def displaySelectedTicketMessage(user_input):
         print("Displaying ticket #" + user_input + "...\n")
