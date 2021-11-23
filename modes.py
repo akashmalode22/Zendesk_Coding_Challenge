@@ -6,17 +6,32 @@ MODE_SELECTED_TICKET = 2
 MODE_PAGINATION = 3
 MODE_NO_PAGINATION = 4
 
+OPTIONS_MAIN_MENU = ["1", "2", "q", "quit"]
+OPTIONS_PAGE_MENU = ["n", "p", "s", "m", "q", "quit"]
+
 
 class Modes:
 
     CURRENT_MODE = 0
 
-    def validateModeSelection(self, user_input):
-        if user_input == "q" or user_input == "quit":
-            return True
+    def validateModeSelection(self, user_input, number_of_tickets=0):
 
-        elif user_input == "0" or user_input == "1" or user_input == "2":
-            return True
+        if self.CURRENT_MODE == MODE_MAIN_MENU:
+            if user_input in OPTIONS_MAIN_MENU:
+                return True
+            return False
+
+        if self.CURRENT_MODE == MODE_PAGINATION:
+            if user_input in OPTIONS_PAGE_MENU:
+                return True
+            return False
+
+        if self.CURRENT_MODE == MODE_SELECTED_TICKET:
+            user_input = int(user_input)
+
+            if user_input > 0 and user_input <= number_of_tickets:
+                return True
+            return False
 
         return False
 
@@ -66,6 +81,12 @@ class Modes:
 
         # Get user input for ticket number
         user_input_ticket_number = input("Enter a ticket number: ")
+        retriever.getNumberOfTickets()
+        if not self.validateModeSelection(
+            user_input_ticket_number, retriever.number_of_tickets
+        ):
+            Printer.displayOutOfRangeInput()
+            return
 
         # Get ticket data from server, store in variable
         ticket = retriever.getTicketByID(user_input_ticket_number)

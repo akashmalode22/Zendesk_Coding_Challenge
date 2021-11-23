@@ -1,6 +1,7 @@
-Refactor: main.py
+Refactor: User Input Validation based on current mode
 
 This commit:
- - Completely refactors main.py for increased readability
- - Seaprates flow logic for handling all modes into the "modes" class
- - Creates a new utils file to handle any object creation for relevant classes
+ - Detects the current mode and does user input validation
+ - Every mode has different menu options stored in a list
+ - Input validation for selecting a particular ID should be in range of number
+   of tickets available

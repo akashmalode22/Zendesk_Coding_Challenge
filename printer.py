@@ -40,6 +40,9 @@ class Printer:
             "------------------------------------------------------------------------\n"
         )
 
+    def displayOutOfRangeInput():
+        print("Ticket ID selected doesn't exist. Select another ticket ID...")
+
     def displayAllTicketsInfo(tickets, number_of_tickets):
         modified_tickets = []
 

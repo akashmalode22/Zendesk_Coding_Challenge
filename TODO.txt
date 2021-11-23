@@ -10,3 +10,11 @@ Figure out how to serve only 25 tickets
     If less than 25, not pagination mode: then just display all of them
     If more than 25, pagination mode: then take first 25, display, add option to next page
         If next page asked for, pick next 25 tickets (or remaining)
+
+
+Refactoring:
+    - main.py (done)
+    - modes.py
+    - printer.py
+    - retrivetickets.py
+    - utils.py
