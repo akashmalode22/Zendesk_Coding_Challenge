@@ -107,11 +107,25 @@ class RetrieveTickets:
             elif user_input == "n" or user_input == "p":
 
                 if user_input == "n":
+
+                    if not mode.validateNextPageExists(
+                        self.start_id, self.end_id, self.number_of_tickets
+                    ):
+                        Printer.displayNoNextPage()
+                        continue
+
                     [self.start_id, self.end_id] = utils.calculateNextPageBounds(
                         self.last_ticket_shown, self.number_of_tickets
                     )
 
                 elif user_input == "p":
+
+                    if not mode.validatePreviousPageExists(
+                        self.start_id, self.end_id, self.number_of_tickets
+                    ):
+                        Printer.displayNoPreviousPage()
+                        continue
+
                     [self.start_id, self.end_id] = utils.calculatePreviousPageBounds(
                         self.start_id, self.end_id
                     )

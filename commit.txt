@@ -1,6 +1,5 @@
-Display user feedback if GET request response takes long
+Error Management: Error message when user tries to move to a page out of bounds
 
 This commit:
-  - Displays user feedback message to wait for a response in case
-    the GET request is taking a while
-  - Cleans up some print statements
+  - Identifies whether a next page or previous page exists
+  - Prints an error message if user tries to go beyond the first or last page

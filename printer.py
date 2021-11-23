@@ -35,6 +35,14 @@ class Printer:
             print("\nResponse is invalid.\n")
 
     @staticmethod
+    def displayNoNextPage():
+        print("\nNext page doesn't exist... Go to a previous page.\n")
+
+    @staticmethod
+    def displayNoPreviousPage():
+        print("\nPrevious page doesn't exist... Go to a next page.\n")
+
+    @staticmethod
     def displayAllTicketsMessage():
         print("\nDisplaying all tickets. Please wait while we fetch them...\n")
 

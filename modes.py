@@ -42,6 +42,20 @@ class Modes:
 
         return False
 
+    def validateNextPageExists(self, start_id, end_id, number_of_tickets):
+
+        if end_id + 1 > number_of_tickets:
+            return False
+
+        return True
+
+    def validatePreviousPageExists(self, start_id, end_id, number_of_tickets):
+
+        if start_id - 1 <= 0:
+            return False
+
+        return True
+
     def changeMode(self, user_input):
 
         Modes.CURRENT_MODE = user_input
