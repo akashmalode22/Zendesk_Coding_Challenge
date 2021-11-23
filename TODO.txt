@@ -1,20 +1,30 @@
-I have the main loop working now.
 
-Implement each of the modes now.
-    Start with displaying 1 ticket
-        Error check if ticket # does NOT exist
+[DONE] Implement each of the modes now.
+    [DONE] Start with displaying 1 ticket
+        [DONE] Error check if ticket # does NOT exist
 
-Figure out how to serve only 25 tickets
+[DONE] Figure out how to serve only 25 tickets
     [DONE] Find how many tickets exist
-    Create a mode "Pagination" or not
-    If less than 25, not pagination mode: then just display all of them
-    If more than 25, pagination mode: then take first 25, display, add option to next page
-        If next page asked for, pick next 25 tickets (or remaining)
+    [DONE] Create a mode "Pagination" or not
+    [DONE] If less than 25, not pagination mode: then just display all of them
+    [DONE] If more than 25, pagination mode: then take first 25, display, add option to next page
+        [DONE] If next page asked for, pick next 25 tickets (or remaining)
 
 
-Refactoring:
-    - main.py (done)
-    - modes.py (done)
-    - printer.py (done)
-    - retrivetickets.py (done)
-    - utils.py (done)
+[DONE] Refactoring:
+    - [DONE] main.py
+    - [DONE] modes.py
+    - [DONE] printer.py
+    - [DONE] retrivetickets.py
+    - [DONE] utils.py
+
+Error Management:
+    - GET requests errors
+    - Moving between pages errors
+    - All menu options possible errors
+
+Comment Code:
+    - Input/Output for each function
+    - Between lines if necessary
+
+Unit Testing:
