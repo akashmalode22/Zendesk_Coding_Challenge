@@ -1,7 +1,7 @@
-Refactor: User Input Validation based on current mode
+BUG FIX: Exiting from pagination menu doesn't reset pages
 
 This commit:
- - Detects the current mode and does user input validation
- - Every mode has different menu options stored in a list
- - Input validation for selecting a particular ID should be in range of number
-   of tickets available
+ - Identifies if the user leaves pagination menu
+ - Resets the last_ticket_shown variable so that future pagination starts
+   from ticket #1 and not the previous values
+ - This fixes "next page" and "prev page" options when returning to pagination mode

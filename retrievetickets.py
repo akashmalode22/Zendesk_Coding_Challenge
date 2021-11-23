@@ -122,7 +122,7 @@ class RetrieveTickets:
                 Printer.displayExitMessage()
                 exit()
 
-            if user_input == "s":
+            elif user_input == "s":
 
                 # Get user input for ticket number
                 user_input_ticket_number = input("Enter a ticket number: ")
@@ -135,11 +135,11 @@ class RetrieveTickets:
 
                 continue
 
-            if user_input == "m":
+            elif user_input == "m":
                 mode.changeMode(modes.MODE_MAIN_MENU)
                 return
 
-            if user_input == "n":
+            elif user_input == "n":
 
                 self.start_id = self.last_ticket_shown + 1
                 self.end_id = min(self.last_ticket_shown + 25, self.number_of_tickets)
@@ -151,7 +151,7 @@ class RetrieveTickets:
 
                 Printer.displayAllTicketsInfo(tickets, number_of_tickets)
 
-            if user_input == "p":
+            elif user_input == "p":
 
                 self.start_id = self.start_id - 25
 
@@ -167,3 +167,6 @@ class RetrieveTickets:
                 self.last_ticket_shown = self.end_id
 
                 Printer.displayAllTicketsInfo(tickets, number_of_tickets)
+
+            else:
+                Printer.displayInvalidInput()

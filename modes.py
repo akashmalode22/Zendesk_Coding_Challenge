@@ -117,3 +117,6 @@ class Modes:
 
         # Start the pagination loop (for more pages)
         retriever.pageTickets(self)
+
+        # Pagination is over. Reset last ticket shown for future pagination
+        retriever.last_ticket_shown = 0
