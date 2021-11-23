@@ -18,6 +18,21 @@ class Printer:
     def displayInvalidInput():
         print("Invalid option selected. Ignoring user input...\n")
 
+    def displayResponseErrors(status_code):
+        if status_code == 401:
+            print(
+                "Unauthorized user. Please check login credentials and re-run the program."
+            )
+            exit()
+        elif status_code == 404:
+            print("Invalid request.")
+        elif status_code == 500:
+            print(
+                "Internal Server Error. If problem persists, the service may be down."
+            )
+        else:
+            print("Response is invalid.")
+
     @staticmethod
     def displayAllTicketsMessage():
         print("Displaying all tickets. Please wait while we fetch them...\n")

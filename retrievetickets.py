@@ -16,7 +16,10 @@ class RetrieveTickets:
 
     def generateURL(self, url_sublink):
         return (
-            "https://zccakashmalode.zendesk.com/api/v2/tickets" + url_sublink + ".json"
+            "https://zccakashmalode.zendesk.com/api/v2/tickets"
+            + url_sublink
+            + ".json"
+            # "https://zccakashmalode.zendesk.com/api/v2/tickets/102.json"
         )
 
     def getCredentials(self):
@@ -31,10 +34,7 @@ class RetrieveTickets:
         response = requests.get(url, auth=(user, pwd))
 
         if response.status_code != 200:
-            print(
-                "Status Code:", response.status_code, "Unable to execute GET request."
-            )
-            exit()
+            Printer.displayResponseErrors(response.status_code)
 
         return response.json()
 

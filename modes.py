@@ -127,8 +127,10 @@ class Modes:
     def handleMultiplePagesMode(self, retriever):
 
         # Retrieve the first 25 tickets
-        [tickets, number_of_tickets] = retriever.getTicketsInRange(1, 25)
-        retriever.last_ticket_shown = 25
+        [tickets, number_of_tickets] = retriever.getTicketsInRange(
+            1, TICKETS_PER_PAGE_LIMIT
+        )
+        retriever.last_ticket_shown = TICKETS_PER_PAGE_LIMIT
 
         # Display the first 25 tickets
         Printer.displayAllTicketsInfo(tickets, number_of_tickets)

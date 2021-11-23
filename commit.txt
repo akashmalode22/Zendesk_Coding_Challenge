@@ -1,5 +1,7 @@
-Refactor: Combining previous and next page methods
+Error Management: Appropriate message displayed for response status codes
 
 This commit:
- - Combines logic for moving between next and previous pages in pagination mode
- - Notices that the logic for both methods previously differed by one method
+  - Handles error codes: 401, 404, 500
+    - In the case its not 200
+  - Recognizes if the response status code is not 200
+  - Displays the appropriate error message
