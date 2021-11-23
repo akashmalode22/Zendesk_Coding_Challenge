@@ -16,5 +16,5 @@ Refactoring:
     - main.py (done)
     - modes.py (done)
     - printer.py (done)
-    - retrivetickets.py
+    - retrivetickets.py (done)
     - utils.py (done)

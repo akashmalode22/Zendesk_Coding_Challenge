@@ -1,6 +1,6 @@
-Refactor: Asking for a selected ticket from pagination menu
+Refactor: Moving between pages in pagination mode
 
 This commit:
- - Refactors retrievetickets.py to reuse previously implemented function
- - If the user is in pagination mode and asks for a selected ticket,
-   the program calls handleSelectedTicketMode() that was previously designed
+ - Refactors retrievetickets.py when paging for tickets
+ - Code for moving to next and previous pages is more readable
+ - Moved bound calculations to utils.py

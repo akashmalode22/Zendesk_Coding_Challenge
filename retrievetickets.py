@@ -95,9 +95,7 @@ class RetrieveTickets:
                 exit()
 
             elif user_input == "s":
-
                 mode.handleSelectedTicketMode(self, True)
-
                 continue
 
             elif user_input == "m":
@@ -106,8 +104,9 @@ class RetrieveTickets:
 
             elif user_input == "n":
 
-                self.start_id = self.last_ticket_shown + 1
-                self.end_id = min(self.last_ticket_shown + 25, self.number_of_tickets)
+                [self.start_id, self.end_id] = utils.calculateNextPageBounds(
+                    self.last_ticket_shown, self.number_of_tickets
+                )
 
                 [tickets, number_of_tickets] = self.getTicketsInRange(
                     self.start_id, self.end_id
@@ -118,13 +117,12 @@ class RetrieveTickets:
 
             elif user_input == "p":
 
-                self.start_id = self.start_id - 25
+                # Start ID has to be 25 tickets prior for every page
+                # End ID needs to be configured based on number of tickets
 
-                if self.end_id % 25 != 0:
-                    offset = self.end_id % 25
-                    self.end_id = self.end_id - offset
-                else:
-                    self.end_id = self.end_id - 25
+                [self.start_id, self.end_id] = utils.calculatePreviousPageBounds(
+                    self.start_id, self.end_id
+                )
 
                 [tickets, number_of_tickets] = self.getTicketsInRange(
                     self.start_id, self.end_id
@@ -134,4 +132,5 @@ class RetrieveTickets:
                 Printer.displayAllTicketsInfo(tickets, number_of_tickets)
 
             else:
+                # Invalid input. Display message.
                 Printer.displayInvalidInput()
