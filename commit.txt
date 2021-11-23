@@ -1,6 +1,5 @@
-Refactor: Moving between pages in pagination mode
+Refactor: Combining previous and next page methods
 
 This commit:
- - Refactors retrievetickets.py when paging for tickets
- - Code for moving to next and previous pages is more readable
- - Moved bound calculations to utils.py
+ - Combines logic for moving between next and previous pages in pagination mode
+ - Notices that the logic for both methods previously differed by one method

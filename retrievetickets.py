@@ -102,27 +102,17 @@ class RetrieveTickets:
                 mode.changeMode(modes.MODE_MAIN_MENU)
                 return
 
-            elif user_input == "n":
+            elif user_input == "n" or user_input == "p":
 
-                [self.start_id, self.end_id] = utils.calculateNextPageBounds(
-                    self.last_ticket_shown, self.number_of_tickets
-                )
+                if user_input == "n":
+                    [self.start_id, self.end_id] = utils.calculateNextPageBounds(
+                        self.last_ticket_shown, self.number_of_tickets
+                    )
 
-                [tickets, number_of_tickets] = self.getTicketsInRange(
-                    self.start_id, self.end_id
-                )
-                self.last_ticket_shown = self.end_id
-
-                Printer.displayAllTicketsInfo(tickets, number_of_tickets)
-
-            elif user_input == "p":
-
-                # Start ID has to be 25 tickets prior for every page
-                # End ID needs to be configured based on number of tickets
-
-                [self.start_id, self.end_id] = utils.calculatePreviousPageBounds(
-                    self.start_id, self.end_id
-                )
+                elif user_input == "p":
+                    [self.start_id, self.end_id] = utils.calculatePreviousPageBounds(
+                        self.start_id, self.end_id
+                    )
 
                 [tickets, number_of_tickets] = self.getTicketsInRange(
                     self.start_id, self.end_id
