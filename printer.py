@@ -78,5 +78,4 @@ class Printer:
         print('\t--Press "s" to view a selected ticket')
         print('\t--Press "m" to go to main menu')
         print('\t--Press "q" or type "quit" to quit')
-
         print()

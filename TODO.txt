@@ -15,6 +15,6 @@ Figure out how to serve only 25 tickets
 Refactoring:
     - main.py (done)
     - modes.py (done)
-    - printer.py
+    - printer.py (done)
     - retrivetickets.py
-    - utils.py
+    - utils.py (done)

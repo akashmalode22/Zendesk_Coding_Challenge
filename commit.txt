@@ -1,5 +1,6 @@
-Refactor: modes.py
+Refactor: Receiving response from server
 
 This commit:
- - Introduces TICKETS_PER_PAGE_LIMIT macro to remove ambiguity
- - Refactors modes.py functions for better readability
+ - Extracts receiving a response from the server
+ - Response is generated based on URL input into the 
+   getResponseFromServer() function

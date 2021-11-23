@@ -24,8 +24,7 @@ class RetrieveTickets:
 
         return [user, pwd]
 
-    def getNumberOfTickets(self):
-        url = self.generateURL("/count")
+    def getResponseFromServer(self, url):
         [user, pwd] = self.getCredentials()
 
         response = requests.get(url, auth=(user, pwd))
@@ -36,41 +35,28 @@ class RetrieveTickets:
             )
             exit()
 
-        data = response.json()
+        return response.json()
+
+    def getNumberOfTickets(self):
+        url = self.generateURL("/count")
+
+        data = self.getResponseFromServer(url)
 
         self.number_of_tickets = data["count"]["value"]
 
     def getTicketByID(self, ticket_id):
 
         url = self.generateURL("/" + ticket_id)
-        [user, pwd] = self.getCredentials()
 
-        response = requests.get(url, auth=(user, pwd))
-
-        if response.status_code != 200:
-            print(
-                "Status Code:", response.status_code, "Unable to execute GET request."
-            )
-            exit()
-
-        data = response.json()
+        data = self.getResponseFromServer(url)
 
         return data
 
     def getAllTicketsNoPagination(self):
 
         url = self.generateURL("")
-        [user, pwd] = self.getCredentials()
 
-        response = requests.get(url, auth=(user, pwd))
-
-        if response.status_code != 200:
-            print(
-                "Status Code:", response.status_code, "Unable to execute GET request."
-            )
-            exit()
-
-        data = response.json()
+        data = self.getResponseFromServer(url)
 
         return [data["tickets"], self.number_of_tickets]
 
@@ -92,17 +78,7 @@ class RetrieveTickets:
         else:
             url = self.generateURL("/show_many?ids=" + ",".join(ids))
 
-        [user, pwd] = self.getCredentials()
-
-        response = requests.get(url, auth=(user, pwd))
-
-        if response.status_code != 200:
-            print(
-                "Status Code:", response.status_code, "Unable to execute GET request."
-            )
-            exit()
-
-        data = response.json()
+        data = self.getResponseFromServer(url)
 
         if len(ids) == 1:
             return [data["ticket"], end_id - start_id + 1]
