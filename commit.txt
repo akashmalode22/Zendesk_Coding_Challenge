@@ -1,7 +1,5 @@
-BUG FIX: Exiting from pagination menu doesn't reset pages
+Refactor: modes.py
 
 This commit:
- - Identifies if the user leaves pagination menu
- - Resets the last_ticket_shown variable so that future pagination starts
-   from ticket #1 and not the previous values
- - This fixes "next page" and "prev page" options when returning to pagination mode
+ - Introduces TICKETS_PER_PAGE_LIMIT macro to remove ambiguity
+ - Refactors modes.py functions for better readability

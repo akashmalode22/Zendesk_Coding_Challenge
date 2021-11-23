@@ -6,8 +6,11 @@ MODE_SELECTED_TICKET = 2
 MODE_PAGINATION = 3
 MODE_NO_PAGINATION = 4
 
+TICKETS_PER_PAGE_LIMIT = 25
+
 OPTIONS_MAIN_MENU = ["1", "2", "q", "quit"]
 OPTIONS_PAGE_MENU = ["n", "p", "s", "m", "q", "quit"]
+OPTIONS_QUIT = ["q", "quit"]
 
 
 class Modes:
@@ -36,14 +39,17 @@ class Modes:
         return False
 
     def changeMode(self, user_input):
+
         Modes.CURRENT_MODE = user_input
 
     def exit(self, user_input):
-        if user_input == "q" or user_input == "quit":
+
+        if user_input in OPTIONS_QUIT:
             return True
         return False
 
     def handleMainMenuMode(self):
+
         # Display main menu
         Printer.displayMainMenu()
 
@@ -72,16 +78,20 @@ class Modes:
 
         # Determine if we need to page through tickets based
         # on the total number of tickets available
-        if retriever.number_of_tickets < 25:
+        if retriever.number_of_tickets < TICKETS_PER_PAGE_LIMIT:
             self.changeMode(MODE_NO_PAGINATION)
-        elif retriever.number_of_tickets >= 25:
+        elif retriever.number_of_tickets >= TICKETS_PER_PAGE_LIMIT:
             self.changeMode(MODE_PAGINATION)
 
     def handleSelectedTicketMode(self, retriever):
 
         # Get user input for ticket number
         user_input_ticket_number = input("Enter a ticket number: ")
+
+        # Get number of tickets on Zendesk account
         retriever.getNumberOfTickets()
+
+        # Validate whether user selected a valid ticket ID
         if not self.validateModeSelection(
             user_input_ticket_number, retriever.number_of_tickets
         ):
