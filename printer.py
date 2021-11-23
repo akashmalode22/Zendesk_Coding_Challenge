@@ -8,6 +8,7 @@ class Printer:
 
     @staticmethod
     def displayMainMenu():
+        print()
         print("\tMain Menu:")
         print("\t--Press 1 to view all tickets")
         print("\t--Press 2 to view a selected ticket")
@@ -16,29 +17,29 @@ class Printer:
 
     @staticmethod
     def displayInvalidInput():
-        print("Invalid option selected. Ignoring user input...\n")
+        print("\nInvalid option selected. Please select a valid menu option...\n")
 
     def displayResponseErrors(status_code):
         if status_code == 401:
             print(
-                "Unauthorized user. Please check login credentials and re-run the program."
+                "\nUnauthorized user. Please check login credentials and re-run the program.\n"
             )
             exit()
         elif status_code == 404:
-            print("Invalid request.")
+            print("\nInvalid request.\n")
         elif status_code == 500:
             print(
-                "Internal Server Error. If problem persists, the service may be down."
+                "\nInternal Server Error. If problem persists, the service may be down.\n"
             )
         else:
-            print("Response is invalid.")
+            print("\nResponse is invalid.\n")
 
     @staticmethod
     def displayAllTicketsMessage():
-        print("Displaying all tickets. Please wait while we fetch them...\n")
+        print("\nDisplaying all tickets. Please wait while we fetch them...\n")
 
     def displaySelectedTicketMessage(user_input):
-        print("Displaying ticket #" + user_input + "...\n")
+        print("\nDisplaying ticket #" + user_input + "...\n")
 
     @staticmethod
     def displayExitMessage():
@@ -47,7 +48,6 @@ class Printer:
         print("********************************************************\n")
 
     def displayTicketInfo(ticket):
-        print("Displaying ticket #", ticket["ticket"]["id"], "...\n")
         print(
             "------------------------------------------------------------------------"
         )
@@ -94,6 +94,7 @@ class Printer:
 
     @staticmethod
     def displayPaginationMenu():
+        print()
         print("\tPagination Menu:")
         print('\t--Press "n" to view next page')
         print('\t--Press "p" to view previous page')

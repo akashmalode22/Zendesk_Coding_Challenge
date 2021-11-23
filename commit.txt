@@ -1,7 +1,6 @@
-Error Management: Appropriate message displayed for response status codes
+Display user feedback if GET request response takes long
 
 This commit:
-  - Handles error codes: 401, 404, 500
-    - In the case its not 200
-  - Recognizes if the response status code is not 200
-  - Displays the appropriate error message
+  - Displays user feedback message to wait for a response in case
+    the GET request is taking a while
+  - Cleans up some print statements
