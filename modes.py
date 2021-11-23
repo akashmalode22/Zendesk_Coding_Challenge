@@ -17,7 +17,7 @@ class Modes:
 
     CURRENT_MODE = 0
 
-    def validateModeSelection(self, user_input, number_of_tickets=0):
+    def validateModeSelection(self, user_input, number_of_tickets=0, from_paging=False):
 
         if self.CURRENT_MODE == MODE_MAIN_MENU:
             if user_input in OPTIONS_MAIN_MENU:
@@ -27,6 +27,10 @@ class Modes:
         if self.CURRENT_MODE == MODE_PAGINATION:
             if user_input in OPTIONS_PAGE_MENU:
                 return True
+            if from_paging:
+                user_input = int(user_input)
+                if user_input > 0 and user_input <= number_of_tickets:
+                    return True
             return False
 
         if self.CURRENT_MODE == MODE_SELECTED_TICKET:
@@ -83,7 +87,7 @@ class Modes:
         elif retriever.number_of_tickets >= TICKETS_PER_PAGE_LIMIT:
             self.changeMode(MODE_PAGINATION)
 
-    def handleSelectedTicketMode(self, retriever):
+    def handleSelectedTicketMode(self, retriever, from_paging=False):
 
         # Get user input for ticket number
         user_input_ticket_number = input("Enter a ticket number: ")
@@ -93,7 +97,7 @@ class Modes:
 
         # Validate whether user selected a valid ticket ID
         if not self.validateModeSelection(
-            user_input_ticket_number, retriever.number_of_tickets
+            user_input_ticket_number, retriever.number_of_tickets, from_paging
         ):
             Printer.displayOutOfRangeInput()
             return
@@ -103,6 +107,10 @@ class Modes:
 
         # Display ticket information
         Printer.displayTicketInfo(ticket)
+
+        # If method was access from paging menu, leave as is. Just return.
+        if from_paging:
+            return
 
         # Switch back to main menu mode
         self.changeMode(MODE_MAIN_MENU)

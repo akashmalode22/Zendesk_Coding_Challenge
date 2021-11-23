@@ -3,6 +3,7 @@ from requests.auth import HTTPBasicAuth
 import errormacros
 import modes
 from printer import Printer
+import utils
 
 
 class RetrieveTickets:
@@ -38,6 +39,7 @@ class RetrieveTickets:
         return response.json()
 
     def getNumberOfTickets(self):
+
         url = self.generateURL("/count")
 
         data = self.getResponseFromServer(url)
@@ -64,15 +66,9 @@ class RetrieveTickets:
 
         self.getNumberOfTickets()
 
-        # Store required ticket IDs in an integer list
-        ids = []
-        for i in range(start_id, end_id + 1):
-            ids.append(i)
+        ids = utils.populateListWithIDs(start_id, end_id)
 
-        # Convert integer list to string list
-        ids = [str(id) for id in ids]
-
-        url = ""
+        # url = "" TODO: Do I need this?
         if len(ids) == 1:
             url = self.generateURL("/" + ids[0])
         else:
@@ -100,14 +96,7 @@ class RetrieveTickets:
 
             elif user_input == "s":
 
-                # Get user input for ticket number
-                user_input_ticket_number = input("Enter a ticket number: ")
-
-                # Get ticket data from server, store in variable
-                ticket = self.getTicketByID(user_input_ticket_number)
-
-                # Display ticket information
-                Printer.displayTicketInfo(ticket)
+                mode.handleSelectedTicketMode(self, True)
 
                 continue
 

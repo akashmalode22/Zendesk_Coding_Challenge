@@ -2,9 +2,11 @@ from tabulate import tabulate
 
 
 class Printer:
+    @staticmethod
     def displayInitialMessage():
         print("\n\n***** Welcome to the Zendesk Ticket Viewer *****\n")
 
+    @staticmethod
     def displayMainMenu():
         print("\tMain Menu:")
         print("\t--Press 1 to view all tickets")
@@ -12,15 +14,18 @@ class Printer:
         print('\t--Press q or type "quit" to quit')
         print()
 
+    @staticmethod
     def displayInvalidInput():
         print("Invalid option selected. Ignoring user input...\n")
 
+    @staticmethod
     def displayAllTicketsMessage():
         print("Displaying all tickets. Please wait while we fetch them...\n")
 
     def displaySelectedTicketMessage(user_input):
         print("Displaying ticket #" + user_input + "...\n")
 
+    @staticmethod
     def displayExitMessage():
         print("\n********************************************************")
         print("Thank you for using the Zendesk Ticket Viewer! Bye.")
@@ -40,8 +45,9 @@ class Printer:
             "------------------------------------------------------------------------\n"
         )
 
+    @staticmethod
     def displayOutOfRangeInput():
-        print("Ticket ID selected doesn't exist. Select another ticket ID...")
+        print("Ticket ID selected doesn't exist. Select another ticket ID...\n")
 
     def displayAllTicketsInfo(tickets, number_of_tickets):
         modified_tickets = []
@@ -71,6 +77,7 @@ class Printer:
         print(tabulate(modified_tickets, headers=["ID", "Subject", "By", "Dated"]))
         print()
 
+    @staticmethod
     def displayPaginationMenu():
         print("\tPagination Menu:")
         print('\t--Press "n" to view next page')

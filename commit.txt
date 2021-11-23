@@ -1,6 +1,6 @@
-Refactor: Receiving response from server
+Refactor: Asking for a selected ticket from pagination menu
 
 This commit:
- - Extracts receiving a response from the server
- - Response is generated based on URL input into the 
-   getResponseFromServer() function
+ - Refactors retrievetickets.py to reuse previously implemented function
+ - If the user is in pagination mode and asks for a selected ticket,
+   the program calls handleSelectedTicketMode() that was previously designed
