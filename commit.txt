@@ -1,5 +1,6 @@
-Refactor: Calculation functions in modes.py
+User credentials extracted from text file
 
 This commit:
-  - Delegates a separate function for calculations and checking existence of tickets
-  - Makes bigger functions more readable with meaningful function names
+  - Extracts user credentials from "credentials.txt"
+  - Uses credentials to make HTTP GET requests
+  - User must input credentials correctly

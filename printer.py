@@ -25,15 +25,18 @@ class Printer:
             print(
                 "\nUnauthorized user. Please check login credentials and re-run the program.\n"
             )
-            exit()
+
         elif status_code == 404:
-            print("\nInvalid request.\n")
+            print(
+                "\nInvalid request. Verify subdomain and credentials, and re-run the program.\n"
+            )
         elif status_code == 500:
             print(
                 "\nInternal Server Error. If problem persists, the service may be down.\n"
             )
         else:
             print("\nResponse is invalid.\n")
+        exit()
 
     @staticmethod
     def displayNoNextPage():

@@ -15,13 +15,19 @@ class RetrieveTickets:
     end_id = 0
 
     def generateURL(self, url_sublink):
+        subdomain = utils.getSubdomainFromFile("credentials.txt")
         return (
-            "https://zccakashmalode.zendesk.com/api/v2/tickets" + url_sublink + ".json"
+            "https://"
+            + subdomain
+            + ".zendesk.com/api/v2/tickets"
+            + url_sublink
+            + ".json"
         )
 
     def getCredentials(self):
-        user = "amalode@purdue.edu/token"
-        pwd = "KCghGkIuanNLONrTjn6UuoCNr79VhqUR7koXjrG1"
+
+        [user, pwd] = utils.getCredentialsFromFile("credentials.txt")
+        user += "/token"
 
         return [user, pwd]
 

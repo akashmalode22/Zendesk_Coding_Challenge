@@ -10,6 +10,29 @@ def initializeClassObjects():
     return [mode, retriever]
 
 
+def getDataFromFile(filename):
+    credentials = []
+    for line in open(filename):
+        credentials.append(tuple(line.strip().split(":")))
+
+    credentials = dict(credentials)
+
+    return credentials
+
+
+def getCredentialsFromFile(filename):
+
+    credentials = getDataFromFile(filename)
+
+    return [credentials["user"], credentials["token"]]
+
+
+def getSubdomainFromFile(filename):
+    credentials = getDataFromFile(filename)
+
+    return credentials["subdomain"]
+
+
 def populateListWithIDs(start_id, end_id):
 
     # Store required ticket IDs in an integer list
