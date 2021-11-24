@@ -1,6 +1,5 @@
-Use tabulate to print single ticket information
+Refactor: Calculation functions in modes.py
 
 This commit:
-  - Uses tabulate to print relevant single ticket information
-  - Uses textwrap to shorten ticekt description to fit into table
-  - Uses a macro in place of constant "200" for successful GET requests
+  - Delegates a separate function for calculations and checking existence of tickets
+  - Makes bigger functions more readable with meaningful function names

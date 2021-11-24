@@ -29,42 +29,37 @@ class Modes:
                 return True
             if from_paging:
                 user_input = int(user_input)
-                if user_input > 0 and user_input <= number_of_tickets:
+                if self.ticketExists(user_input, number_of_tickets):
                     return True
+
             return False
 
         if self.CURRENT_MODE == MODE_SELECTED_TICKET:
             user_input = int(user_input)
 
-            if user_input > 0 and user_input <= number_of_tickets:
+            if self.ticketExists(user_input, number_of_tickets):
                 return True
             return False
 
         return False
 
     def validateNextPageExists(self, start_id, end_id, number_of_tickets):
-
-        if end_id + 1 > number_of_tickets:
-            return False
-
-        return True
+        return end_id + 1 <= number_of_tickets
 
     def validatePreviousPageExists(self, start_id, end_id, number_of_tickets):
+        return start_id - 1 > 0
 
-        if start_id - 1 <= 0:
-            return False
+    def ticketExists(self, user_input, number_of_tickets):
+        return user_input > 0 and user_input <= number_of_tickets
 
-        return True
+    def requireMultiplePages(self, number_of_tickets):
+        return number_of_tickets > TICKETS_PER_PAGE_LIMIT
 
     def changeMode(self, user_input):
-
         Modes.CURRENT_MODE = user_input
 
     def exit(self, user_input):
-
-        if user_input in OPTIONS_QUIT:
-            return True
-        return False
+        return user_input in OPTIONS_QUIT
 
     def handleMainMenuMode(self):
 
@@ -96,10 +91,10 @@ class Modes:
 
         # Determine if we need to page through tickets based
         # on the total number of tickets available
-        if retriever.number_of_tickets < TICKETS_PER_PAGE_LIMIT:
-            self.changeMode(MODE_NO_PAGINATION)
-        elif retriever.number_of_tickets >= TICKETS_PER_PAGE_LIMIT:
+        if self.requireMultiplePages(retriever.number_of_tickets):
             self.changeMode(MODE_PAGINATION)
+        else:
+            self.changeMode(MODE_NO_PAGINATION)
 
     def handleSelectedTicketMode(self, retriever, from_paging=False):
 

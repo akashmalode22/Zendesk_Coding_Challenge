@@ -27,4 +27,7 @@ Comment Code:
     - Input/Output for each function
     - Between lines if necessary
 
+Use ENV variables for login credentials:
+    - Use API token
+
 Unit Testing:

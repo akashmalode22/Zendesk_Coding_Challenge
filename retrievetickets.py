@@ -16,10 +16,7 @@ class RetrieveTickets:
 
     def generateURL(self, url_sublink):
         return (
-            "https://zccakashmalode.zendesk.com/api/v2/tickets"
-            + url_sublink
-            + ".json"
-            # "https://zccakashmalode.zendesk.com/api/v2/tickets/102.json"
+            "https://zccakashmalode.zendesk.com/api/v2/tickets" + url_sublink + ".json"
         )
 
     def getCredentials(self):
@@ -70,7 +67,6 @@ class RetrieveTickets:
 
         ids = utils.populateListWithIDs(start_id, end_id)
 
-        # url = "" TODO: Do I need this?
         if len(ids) == 1:
             url = self.generateURL("/" + ids[0])
         else:
