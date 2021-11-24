@@ -1,6 +1,8 @@
-User credentials extracted from text file
+Display page number when viewing all tickets
 
 This commit:
-  - Extracts user credentials from "credentials.txt"
-  - Uses credentials to make HTTP GET requests
-  - User must input credentials correctly
+  - Displays the page number when viewing tickets
+    - Calculates total pages from the total number of tickets
+    - Keeps track of current page
+    - Displays "Page [x / 5]" at the end of each page
+    - For non-pagination mode, displays "Page [1 / 1]"

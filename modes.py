@@ -129,7 +129,7 @@ class Modes:
         # We have fewer than 25 total tickets. Just display them all
         [tickets, number_of_tickets] = retriever.getAllTicketsNoPagination()
 
-        Printer.displayAllTicketsInfo(tickets, number_of_tickets)
+        Printer.displayAllTicketsInfo(tickets, number_of_tickets, 1, 1)
 
         self.changeMode(MODE_MAIN_MENU)
 
@@ -142,7 +142,9 @@ class Modes:
         retriever.last_ticket_shown = TICKETS_PER_PAGE_LIMIT
 
         # Display the first 25 tickets
-        Printer.displayAllTicketsInfo(tickets, number_of_tickets)
+        Printer.displayAllTicketsInfo(
+            tickets, number_of_tickets, 1, retriever.total_pages
+        )
 
         # Start the pagination loop (for more pages)
         retriever.pageTickets(self)

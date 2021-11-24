@@ -10,6 +10,8 @@ class RetrieveTickets:
 
     number_of_tickets = 0
     last_ticket_shown = 0
+    total_pages = 0
+    current_page = 1
 
     start_id = 0
     end_id = 0
@@ -48,6 +50,8 @@ class RetrieveTickets:
         data = self.getResponseFromServer(url)
 
         self.number_of_tickets = data["count"]["value"]
+
+        self.total_pages = utils.calculateTotalPages(self.number_of_tickets)
 
     def getTicketByID(self, ticket_id):
 
@@ -116,6 +120,8 @@ class RetrieveTickets:
                         Printer.displayNoNextPage()
                         continue
 
+                    self.current_page += 1
+
                     [self.start_id, self.end_id] = utils.calculateNextPageBounds(
                         self.last_ticket_shown, self.number_of_tickets
                     )
@@ -128,6 +134,8 @@ class RetrieveTickets:
                         Printer.displayNoPreviousPage()
                         continue
 
+                    self.current_page -= 1
+
                     [self.start_id, self.end_id] = utils.calculatePreviousPageBounds(
                         self.start_id, self.end_id
                     )
@@ -137,7 +145,9 @@ class RetrieveTickets:
                 )
                 self.last_ticket_shown = self.end_id
 
-                Printer.displayAllTicketsInfo(tickets, number_of_tickets)
+                Printer.displayAllTicketsInfo(
+                    tickets, number_of_tickets, self.current_page, self.total_pages
+                )
 
             else:
                 # Invalid input. Display message.

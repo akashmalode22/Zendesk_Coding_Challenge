@@ -63,3 +63,14 @@ def calculatePreviousPageBounds(start_id, end_id):
         end_id = end_id - modes.TICKETS_PER_PAGE_LIMIT
 
     return [start_id, end_id]
+
+
+def calculateTotalPages(number_of_tickets):
+    total_pages = 0
+
+    total_pages += number_of_tickets / modes.TICKETS_PER_PAGE_LIMIT
+
+    if number_of_tickets % modes.TICKETS_PER_PAGE_LIMIT:
+        total_pages += 1
+
+    return int(total_pages)

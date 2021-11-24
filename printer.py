@@ -78,7 +78,7 @@ class Printer:
     def displayOutOfRangeInput():
         print("Ticket ID selected doesn't exist. Select another ticket ID...\n")
 
-    def displayAllTicketsInfo(tickets, number_of_tickets):
+    def displayAllTicketsInfo(tickets, number_of_tickets, current_page, total_pages):
         modified_tickets = []
 
         if number_of_tickets == 1:
@@ -104,6 +104,7 @@ class Printer:
                 modified_tickets.append(single_ticket)
 
         print(tabulate(modified_tickets, headers=["ID", "Subject", "By", "Dated"]))
+        print("Page [", current_page, "/", total_pages, "]")
         print()
 
     @staticmethod
