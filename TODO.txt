@@ -20,8 +20,8 @@
 
 Error Management:
     - [DONE] GET requests errors (401, 404, 500)
-    - Moving between pages errors
-    - All menu options possible errors
+    - [DONE] Moving between pages errors
+    - [DONE] All menu options possible errors
 
 Comment Code:
     - Input/Output for each function

@@ -1,4 +1,5 @@
 from tabulate import tabulate
+import textwrap
 
 
 class Printer:
@@ -56,17 +57,19 @@ class Printer:
         print("********************************************************\n")
 
     def displayTicketInfo(ticket):
-        print(
-            "------------------------------------------------------------------------"
-        )
-        print("Ticket ID:", ticket["ticket"]["id"])
-        print("Subject: " + ticket["ticket"]["subject"])
-        print("Description: " + ticket["ticket"]["description"])
-        print("Requested by:", ticket["ticket"]["requester_id"])
-        print("Tags:", ticket["ticket"]["tags"])
-        print(
-            "------------------------------------------------------------------------\n"
-        )
+
+        table = [
+            ["Ticket ID", ticket["ticket"]["id"]],
+            ["Subject", ticket["ticket"]["subject"]],
+            ["Requested by", ticket["ticket"]["requester_id"]],
+            ["Tags", ticket["ticket"]["tags"]],
+            [
+                "Description",
+                textwrap.shorten(ticket["ticket"]["description"], width=100),
+            ],
+        ]
+
+        print(tabulate(table, tablefmt="grid"))
 
     @staticmethod
     def displayOutOfRangeInput():

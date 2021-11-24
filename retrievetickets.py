@@ -33,7 +33,7 @@ class RetrieveTickets:
 
         response = requests.get(url, auth=(user, pwd))
 
-        if response.status_code != 200:
+        if response.status_code != errormacros.GET_SUCCESS_CODE:
             Printer.displayResponseErrors(response.status_code)
 
         return response.json()

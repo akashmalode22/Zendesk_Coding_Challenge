@@ -1,5 +1,6 @@
-Error Management: Error message when user tries to move to a page out of bounds
+Use tabulate to print single ticket information
 
 This commit:
-  - Identifies whether a next page or previous page exists
-  - Prints an error message if user tries to go beyond the first or last page
+  - Uses tabulate to print relevant single ticket information
+  - Uses textwrap to shorten ticekt description to fit into table
+  - Uses a macro in place of constant "200" for successful GET requests
