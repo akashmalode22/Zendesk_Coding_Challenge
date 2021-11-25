@@ -1,5 +1,5 @@
-Documentation: Docstring comments for printer.py
+Documentation: Docstring comments for utils.py
 
 This commit:
-  - Adds docstring comments for all functions for printer.py
+  - Adds docstring comments for all functions for utils.py
   - Follows the Google Format for docstrings
