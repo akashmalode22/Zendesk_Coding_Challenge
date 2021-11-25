@@ -19,6 +19,9 @@ class Modes:
 
     def validateModeSelection(self, user_input, number_of_tickets=0, from_paging=False):
 
+        if not isinstance(user_input, str):
+            raise TypeError("User input should be of string type.")
+
         if self.CURRENT_MODE == MODE_MAIN_MENU:
             if user_input in OPTIONS_MAIN_MENU:
                 return True
@@ -44,21 +47,56 @@ class Modes:
         return False
 
     def validateNextPageExists(self, start_id, end_id, number_of_tickets):
+        if (
+            not isinstance(start_id, int)
+            or not isinstance(end_id, int)
+            or not isinstance(number_of_tickets, int)
+        ):
+            raise TypeError("start_id, end_id, number_of_tickets must all be integers.")
+
+        if start_id < 0 or end_id > number_of_tickets:
+            raise IndexError("start_id or end_id out of expected range.")
+
         return end_id + 1 <= number_of_tickets
 
     def validatePreviousPageExists(self, start_id, end_id, number_of_tickets):
+        if (
+            not isinstance(start_id, int)
+            or not isinstance(end_id, int)
+            or not isinstance(number_of_tickets, int)
+        ):
+            raise TypeError("start_id, end_id, number_of_tickets must all be integers.")
+
+        if start_id < 0 or end_id > number_of_tickets:
+            raise IndexError("start_id or end_id out of expected range.")
+
         return start_id - 1 > 0
 
     def ticketExists(self, user_input, number_of_tickets):
+        if not isinstance(user_input, int) or not isinstance(number_of_tickets, int):
+            raise TypeError("user_input, number_of_tickets must be integers.")
+
         return user_input > 0 and user_input <= number_of_tickets
 
     def requireMultiplePages(self, number_of_tickets):
+        if not isinstance(number_of_tickets, int):
+            raise TypeError("number_of_tickets must be integers.")
+
         return number_of_tickets > TICKETS_PER_PAGE_LIMIT
 
     def changeMode(self, user_input):
+        if not isinstance(user_input, int):
+            raise TypeError("mode must be integer.")
+
+        if user_input > 4:
+            raise IndexError("mode does not exist.")
+
         Modes.CURRENT_MODE = user_input
 
     def exit(self, user_input):
+        if not isinstance(user_input, str):
+            raise TypeError("user_input must be a string.")
+
         return user_input in OPTIONS_QUIT
 
     def handleMainMenuMode(self):

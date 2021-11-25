@@ -1,8 +1,5 @@
-Display page number when viewing all tickets
+Unittest: Test all modes.py functions
 
 This commit:
-  - Displays the page number when viewing tickets
-    - Calculates total pages from the total number of tickets
-    - Keeps track of current page
-    - Displays "Page [x / 5]" at the end of each page
-    - For non-pagination mode, displays "Page [1 / 1]"
+  - Writes unit tests for all testable modes.py functions
+  - Raises TypeError or IndexError for functions in modes.py
