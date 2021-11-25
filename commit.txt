@@ -1,5 +1,5 @@
-Error Management: Throw error if credentials.txt does not exist
+Documentation: Docstring comments for modes.py
 
 This commit:
-  - Tries to open credentials.txt. If it cannot be opened, 
-    print error message and exit
+  - Adds docstring comments for all functions for modes.py
+  - Follows the Google Format for docstrings
