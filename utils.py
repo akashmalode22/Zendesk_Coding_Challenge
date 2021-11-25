@@ -12,10 +12,13 @@ def initializeClassObjects():
 
 def getDataFromFile(filename):
     credentials = []
-    for line in open(filename):
+    file = open(filename)
+    for line in file:
         credentials.append(tuple(line.strip().split(":")))
 
     credentials = dict(credentials)
+
+    file.close()
 
     return credentials
 

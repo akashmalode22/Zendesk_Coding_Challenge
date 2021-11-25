@@ -17,6 +17,10 @@ class RetrieveTickets:
     end_id = 0
 
     def generateURL(self, url_sublink):
+
+        if not isinstance(url_sublink, str):
+            raise TypeError("url_sublink must be a string.")
+
         subdomain = utils.getSubdomainFromFile("credentials.txt")
         return (
             "https://"

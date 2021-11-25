@@ -1,5 +1,4 @@
-Unittest: Test all modes.py functions
+Unittest: Test all retrievetickets.py functions
 
 This commit:
-  - Writes unit tests for all testable modes.py functions
-  - Raises TypeError or IndexError for functions in modes.py
+  - Writes unit tests for all non-requests testable retrievetickets.py functions
