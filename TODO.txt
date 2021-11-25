@@ -26,7 +26,10 @@
     - [DONE] Moving between pages errors
     - [DONE] All menu options possible errors
 
-Unit Testing:
+[DONE] Unit Testing:
+    - [DONE] modes.py
+    - [DONE] retrievetickets.py
+    - [DONE] utils.py
 
 Comment Code:
     - Input/Output for each function

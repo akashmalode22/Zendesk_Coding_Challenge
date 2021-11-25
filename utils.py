@@ -12,7 +12,13 @@ def initializeClassObjects():
 
 def getDataFromFile(filename):
     credentials = []
-    file = open(filename)
+    try:
+        file = open(filename)
+
+    except Exception as e:
+        print("Cannot open ", filename, ". Please check that it exists.")
+        exit()
+
     for line in file:
         credentials.append(tuple(line.strip().split(":")))
 
