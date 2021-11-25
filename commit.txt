@@ -1,4 +1,4 @@
-Unittest: Test all retrievetickets.py functions
+Unittest: Test all utils.py functions
 
 This commit:
-  - Writes unit tests for all non-requests testable retrievetickets.py functions
+  - Writes unit tests for testable utils.py functions
