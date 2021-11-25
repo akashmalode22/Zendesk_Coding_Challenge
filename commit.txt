@@ -1,5 +1,5 @@
-Documentation: Docstring comments for utils.py
+Documentation: Docstring comments for retrievetickets.py
 
 This commit:
-  - Adds docstring comments for all functions for utils.py
+  - Adds docstring comments for all functions for retrievetickets.py
   - Follows the Google Format for docstrings

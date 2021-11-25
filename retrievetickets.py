@@ -17,6 +17,17 @@ class RetrieveTickets:
     end_id = 0
 
     def generateURL(self, url_sublink):
+        """Constructs the URL link to send a GET request to
+
+        Combines the subdomain extracted from the credentials file
+        and the url_sublink to generate a URL. The URL is returned.
+
+        Args:
+            url_sublink (string): sub path for the URL
+
+        Returns:
+            url (string): Ticket ID to start from for prev page
+        """
 
         if not isinstance(url_sublink, str):
             raise TypeError("url_sublink must be a string.")
@@ -31,6 +42,18 @@ class RetrieveTickets:
         )
 
     def getCredentials(self):
+        """Retrieves credentials from credentials.txt
+
+        Retrieves credentials from credentials.txt. Appends
+        "/token" to user string.
+
+        Args:
+            no value
+
+        Returns:
+            user (string): user email with "/token" appended
+            pwd (string): user's API token
+        """
 
         [user, pwd] = utils.getCredentialsFromFile("credentials.txt")
         user += "/token"
@@ -38,6 +61,21 @@ class RetrieveTickets:
         return [user, pwd]
 
     def getResponseFromServer(self, url):
+        """Does a GET request using url specified
+
+        Retrieves user and password for authentication. Does
+        a GET request at the specified url. Returns the JSON
+        converted response data.
+
+        Args:
+            url (string): url to call GET request at
+
+        Returns:
+            response (JSON object): response from API at
+                                    specified URL in JSON
+                                    format
+        """
+
         [user, pwd] = self.getCredentials()
 
         response = requests.get(url, auth=(user, pwd))
@@ -48,6 +86,18 @@ class RetrieveTickets:
         return response.json()
 
     def getNumberOfTickets(self):
+        """Retrieves total number of tickets on the Zendesk account
+
+        Calls a GET request with "/count" sublink. Extracts the
+        count and value fields. Sets the class's variable to the
+        count
+
+        Args:
+            no value
+
+        Returns:
+            no value
+        """
 
         url = self.generateURL("/count")
 
@@ -58,6 +108,17 @@ class RetrieveTickets:
         self.total_pages = utils.calculateTotalPages(self.number_of_tickets)
 
     def getTicketByID(self, ticket_id):
+        """Does a GET request for ticket with specific ID
+
+        Generates appropriate URL with ticket ID and performs
+        a GET request. Returns the response.
+
+        Args:
+            ticket_id (string): ID of the ticket requested
+
+        Returns:
+            data (JSON object): Ticket information requested by ID
+        """
 
         url = self.generateURL("/" + ticket_id)
 
@@ -68,6 +129,20 @@ class RetrieveTickets:
         return data
 
     def getAllTicketsNoPagination(self):
+        """Does a GET request to get all tickets
+
+        Get request is performed at the default URL to retrieve
+        all tickets on the Zendesk account. Returns a JSON object
+        of tickets, and the number of tickets.
+
+        Args:
+            no value
+
+        Returns:
+            data (JSON object): Information of all tickets
+            number_of_tickets (int): total number of tickets
+                                     on the account
+        """
 
         url = self.generateURL("")
 
@@ -76,6 +151,22 @@ class RetrieveTickets:
         return [data["tickets"], self.number_of_tickets]
 
     def getTicketsInRange(self, start_id, end_id):
+        """Does a GET request to get certain tickets in a range
+
+        Get request is performed with certain ticket IDs to
+        retrieve tickets on the Zendesk account. Returns a JSON object
+        of tickets, and the number of tickets retrieved (not all
+        tickets).
+
+        Args:
+            start_id (integer): starting index for ticket ID requested
+            end_id (integer): ending index for ticket ID requested
+
+        Returns:
+            data (JSON object): Information of all tickets
+            number_of_tickets (int): total number of tickets
+                                     retrieved
+        """
 
         self.getNumberOfTickets()
 
@@ -94,6 +185,18 @@ class RetrieveTickets:
             return [data["tickets"], end_id - start_id + 1]
 
     def pageTickets(self, mode):
+        """Handles paging through ticket pages
+
+        Stays in a loop until user changes the mode of the program.
+        User is prompted to select a menu option, with the option
+        to go to the next or previous page of tickets.
+
+        Args:
+            mode (Modes object): Modes object
+
+        Returns:
+            no value
+        """
 
         while mode.CURRENT_MODE == modes.MODE_PAGINATION:
 
