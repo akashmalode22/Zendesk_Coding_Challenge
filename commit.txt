@@ -1,5 +1,5 @@
-Documentation: Docstring comments for modes.py
+Documentation: Docstring comments for printer.py
 
 This commit:
-  - Adds docstring comments for all functions for modes.py
+  - Adds docstring comments for all functions for printer.py
   - Follows the Google Format for docstrings

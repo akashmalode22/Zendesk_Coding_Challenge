@@ -60,6 +60,17 @@ class Printer:
         print("********************************************************\n")
 
     def displayTicketInfo(ticket):
+        """Displays information of a single ticket.
+
+        Relevant information of the ticket is extracted, and printed using
+        the tabulate module. Shortens ticket description to 100 characters.
+
+        Args:
+            ticket (JSON object): ticket received from API
+
+        Returns:
+            no value
+        """
 
         table = [
             ["Ticket ID", ticket["ticket"]["id"]],
@@ -79,6 +90,22 @@ class Printer:
         print("Ticket ID selected doesn't exist. Select another ticket ID...\n")
 
     def displayAllTicketsInfo(tickets, number_of_tickets, current_page, total_pages):
+        """Displays information of all tickets.
+
+        Relevant information of the ticket is extracted, and printed using
+        the tabulate module. JSON object is different when only 1 ticket is
+        retrieved from the API, hence the if condition.
+
+        Args:
+            tickets (JSON object): list of tickets in JSON format from API
+            number_of_tickets (int): total number of tickets on the Zendesk account
+            current_page (int): index of the page to be displayed
+            total_pages (int): total number of pages that exist for all tickets
+
+        Returns:
+            no value
+        """
+
         modified_tickets = []
 
         if number_of_tickets == 1:
