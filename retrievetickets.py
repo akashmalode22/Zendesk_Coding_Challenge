@@ -214,6 +214,7 @@ class RetrieveTickets:
                 continue
 
             elif user_input == "m":
+                self.current_page = 1
                 mode.changeMode(modes.MODE_MAIN_MENU)
                 return
 

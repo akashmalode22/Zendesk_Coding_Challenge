@@ -1,4 +1,4 @@
-DOCUMENTATION: Generate requirements.txt
+BUG FIX: Incorrect Page Number Displayed
 
 This commit:
-  - Generates a requirements.txt file to install all dependencies using pip
+  - Resets the page number when switching to main menu from pagination menu
