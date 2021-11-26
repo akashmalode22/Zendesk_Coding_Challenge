@@ -1,6 +1,7 @@
-README: Installation and Running the program
+README: Design Choices
 
 This commit:
-  - Updates the README to include all installation steps
-  - README includes steps required to run the program
-  - README includes steps required to run the test files
+  - Updates the README to include design choices
+  - Includes Main Process, Separation and Modularization, and
+    Fetching tickets only when needed
+  - Fixes some spacing and newline issues from previous iteration
