@@ -1,7 +1,6 @@
-README: Design Choices
+README: Challenges, Possible Improvements, Resources
 
 This commit:
-  - Updates the README to include design choices
-  - Includes Main Process, Separation and Modularization, and
-    Fetching tickets only when needed
+  - Updates the README to include challenges, possible improvements,
+    and resources used
   - Fixes some spacing and newline issues from previous iteration

@@ -104,7 +104,8 @@ If you have everything installed, you can skip to the next section. If you have 
 
 Considering the entire program runs based off of user input, I decided to revolve the entire execution of the program based on **modes**. These modes include `main menu`, `all tickets`, `selected ticket`, `pagination`, and `no pagination`. Every time the user selects an option, the mode context of the program switches to either one of these modes. This helps with interleaving modes without more complicated code.
 
-For example, the user can choose to receive information of one ticket. This puts the program in the `selected ticket` mode. Next, the user wants to receive all tickets. This puts the program in `pagination` (or `no pagination`) mode, depending on the number of tickets. 
+For example, the user can choose to receive information of one ticket. This puts the program in the `selected ticket` mode. Next, the user wants to receive all tickets. This puts the program in `pagination` (or `no pagination`) mode, depending on the number of tickets.
+ 
 What if the user wants to select a ticket to view its details? Instead of repeating code, the program can just change the mode to `selected ticket` mode. 
 
 This makes the code very modular and easy to replicate and reuse.
@@ -142,4 +143,59 @@ Therefore, I request for certain tickets only when they are requested as there i
 
 ## Challenges
 
+### Pagination
 
+At first, pagination seemed easy to implement. I would just have to fetch 25 tickets and display them. When the user asked for the next page, as usual, I would fetch the next 25 tickets and display them. Same logic to go to the previous page: display the previous 25 tickets information. Two challenges quickly came up:
+
+- **When the last page had less than 25 tickets**: Now, I could not just display 25 tickets on the last page, because they might not exist. I had to do some math to figure out how many tickets need to be displayed. I decided to use a `start_id` and `end_id` to keep track of what tickets to show based on ID.
+
+	To return to a previous page from the last page, setting the `end_id` required some calculations with modulo and keeping an offset.
+
+- **User selects a ticket while in pagination mode**: If the user is on a page and decides to view a specific ticket's details, the state of the current displayed page must be remembered in case the user wants to continue paging. Luckily, the `start_id` and `end_id` implementation from above helped solve this rather quickly.
+
+### Finding edge cases and possible errors
+
+Since this was an open challenge without many constraints, it was up to me to come up with possible errors and edge cases. Finding errors was challenging. I had to stress test my program and think of all possible ways to break it. Slowly but surely, I was able to catch a lot of bugs and errors in the process.
+
+### Re-learning Python
+
+I had some experience with handling HTTP requests using Node.js, therefore I started implementing this challenge using NodeJS. But I quickly learned that this challenge requires a lot of modularization and consistency. I am most comfortable with C++ for software engineering projects, but HTTP request documentation seemed too complicated for a project this size.
+
+Python was easier to pick-up, but I hadn't used Python for the longest time. Refreshing my memory on all Python concepts was a challenge but rewarding. Moreover, the Python community online is vast and therefore, was easy to re-learn coding and best practices to produce maintainable and scalable code.
+
+## Possible Improvements
+
+### Caching
+
+As previously mentioned, caching would be a much better implementation of retrieving tickets when needed. I may have to dig deeper into finding how to retrieve data of when a ticket was last modified. This way, I would not have to retrieve data from the server constantly, but only when some information is outdated. This would help to:
+
+- **Reduce bandwidth**: The program will not have to repeatedly make calls to the API to request for data if no information was changed
+
+- **Faster retrieval**: If some ticket information is cached and its data was not modified on the server, the locally stored data can be quickly displayed without the lag of requesting data from the server
+
+### API Testing
+
+Writing more tests for the program, and also unit testing the API's return values would solidify the correct functioning of the program.
+
+### Better User Authentication
+
+Although using an API token is considered safe because you can set limits to the account's use, a more robust login procedure could make the program more safe and hence could allow users to not only read tickets, but also add, edit, and delete them, for full functionality.
+
+## Resources Used
+
+I used the following links to help me smoothly develop this project:
+
+- Zendesk API documentation
+	- [Tickets](https://developer.zendesk.com/api-reference/ticketing/tickets/tickets/)
+	- [Ticket Import](https://developer.zendesk.com/api-reference/ticketing/tickets/ticket_import/)
+	- [Authentication](https://developer.zendesk.com/api-reference/ticketing/tickets/ticket-requests/)
+
+- Displaying Ticket Information Neatly
+	- [Tabulate](https://pypi.org/project/tabulate/) (python module)
+
+- Documentation
+	- [Docstrings](https://realpython.com/documenting-python-code/): in-code function comments
+
+- Unit Tests
+	- [Corey Schafer's Video Tutorial](https://www.youtube.com/watch?v=6tNS--WetLI)
+	- [Socratica's Video Tutorial](https://www.youtube.com/watch?v=1Lfv5tUGsn8)
