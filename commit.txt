@@ -1,6 +1,4 @@
-README: Challenges, Possible Improvements, Resources
+DOCUMENTATION: Generate requirements.txt
 
 This commit:
-  - Updates the README to include challenges, possible improvements,
-    and resources used
-  - Fixes some spacing and newline issues from previous iteration
+  - Generates a requirements.txt file to install all dependencies using pip
