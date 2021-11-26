@@ -38,12 +38,13 @@ You will require the following programs and packages:
 - requests (module)
 - pytest
 
-If you have everything installed, you can skip to the next section. If you have any of these missing, please read the respective instructions:
+If you have everything installed, you can skip to the next section. If you have any of these missing, please read the instructions:
 
 
  1. **Install Python 3**
 
 	Run the following command to see if you already have python3 installed:
+	
 	```python3 --version```
 	
 	If the command responds with some version number of python3, then you can move to the next step. If not, continue to install python3.
@@ -62,18 +63,11 @@ If you have everything installed, you can skip to the next section. If you have 
 	
 	```python3 get-pip.py```
 
-3. **Install the tabulate module using pip**
-	
-	```pip3 install tabulate```
+3. **Install all dependencies**
 
-4. **Install the requests module for python3**
-	
-	```pip3 install requests```
+	```pip install -r requirements.txt```
 
-5. **Install Pytest**
-	
-	```pip3 install -U pytest```
-	
+	The `requirements.txt` file has the names of all required modules and their version numbers. Using `pip install` with the requirements file simplifies the dependency installation process.
 ## Running the program
 
 1. Download the repository to your local machine (within some folder):
@@ -87,16 +81,17 @@ If you have everything installed, you can skip to the next section. If you have 
 	```
 	python3 main.py
 	```
-	**NOTE: Be sure to run the program with `python3`. If you run it with just `python`, you may get an error saying 		`ImportError: No module named tabulate`**
+	**NOTE: Be sure to run the program with `python3`. If you do not have python 3 as your default python version and if you run it with just `python`, you *may* get an error saying 		`ImportError: No module named tabulate`**
+	
 
 ## Running tests
 1. Run all test files prefixed with `test_` using the following command(s):
 
-	```python3 test_modes.py```
+	```python3 -m unittest test_modes.py```
 	
-	```python3 test_retrievetickets.py```
+	```python3 -m unittest test_retrievetickets.py```
 	
-	```python3 test_utils.py```
+	```python3 -m unittest test_utils.py```
 
 ## Design Choices
 
@@ -141,7 +136,7 @@ I fetch tickets from the API only when required, for the following reasons:
 Therefore, I request for certain tickets only when they are requested as there is no caching implemented in the program. This ensures both storage and bandwidth is not wasted, and that all ticket information is up-to-date.
 
 
-## Challenges
+## Challenges Faced
 
 ### Pagination
 

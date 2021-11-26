@@ -1,5 +1,6 @@
-Unittest: Reading credentials from file
+README: Include requirements.txt installation instructions
 
 This commit:
-  - Adds some unittests for reading from a file
-  - Introduces raw retrieval of information for unittesting purpose
+  - Includes instructions to download all project dependencies using 
+    requirements.txt
+  - Fixes spacing and headlines
