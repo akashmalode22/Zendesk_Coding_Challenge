@@ -1,4 +1,5 @@
-Unittest: Mock API with patching requests.get
+Unittest: Reading credentials from file
 
 This commit:
-  - Refactors fetching method in modes.py to unittest with mock.patch
+  - Adds some unittests for reading from a file
+  - Introduces raw retrieval of information for unittesting purpose

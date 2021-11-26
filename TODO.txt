@@ -31,8 +31,16 @@
     - [DONE] retrievetickets.py
     - [DONE] utils.py
 
-Comment Code:
-    - Input/Output for each function
-    - Between lines if necessary
+[DONE] Comment Code:
+    - [DONE] Input/Output for each function
+    - [DONE] Between lines if necessary
+
+Structure Files Better (within folders)
+
+Modify README for requirements.txt
+
+Fix Printer class usage
+
+Refactor more (?)
 
 

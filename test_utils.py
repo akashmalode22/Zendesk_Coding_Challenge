@@ -18,8 +18,19 @@ class TestUtils(unittest.TestCase):
         self.assertEqual(type(mode), type(self.mode))
         self.assertEqual(type(retriever), type(self.retriever))
 
+    def test_getDataFromFile(self):
+        file = open("test_credentials.txt", "w")
+        file.write("subdomain:testdomain\nuser:test@email.com\ntoken:123token456\n")
+        file.close()
+        credentials = utils.getDataFromFile("test_credentials.txt")
+
+        self.assertEqual(credentials["user"], "test@email.com")
+        self.assertEqual(credentials["subdomain"], "testdomain")
+        self.assertEqual(credentials["token"], "123token456")
+
     def test_populateListWithIDs(self):
         self.assertEqual(utils.populateListWithIDs(1, 5), ["1", "2", "3", "4", "5"])
+        self.assertEqual(utils.populateListWithIDs(1, 1), ["1"])
 
         with self.assertRaises(IndexError):
             utils.populateListWithIDs(5, 2)
