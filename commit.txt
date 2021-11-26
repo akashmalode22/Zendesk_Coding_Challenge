@@ -1,6 +1,5 @@
-README: Include requirements.txt installation instructions
+README: Include sections and assumptions
 
 This commit:
-  - Includes instructions to download all project dependencies using 
-    requirements.txt
-  - Fixes spacing and headlines
+  - Includes hyperlinks to skip to sections of the README file
+  - Adds assumptions sub-section

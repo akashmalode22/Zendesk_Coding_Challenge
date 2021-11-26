@@ -37,10 +37,10 @@
 
 Structure Files Better (within folders)
 
-Modify README
-    - for requirements.txt
-    - include section hyperlinks at beginning
-    - include assumptions
+[DONE] Modify README
+    - [DONE] for requirements.txt
+    - [DONE] include section hyperlinks at beginning
+    - [DONE] include assumptions
 
 Fix Printer class usage
 

@@ -6,6 +6,17 @@ Written in Python (python3). The program retrieves ticket information from a Zen
 
 This is a requirement challenge for Zendesk's summer internship for 2022.
 
+## Sections
+
+1. [Project Requirements](#Requirements)
+2. [Installation Prerequisites](##Installation-prerequisites)
+3. [Running the Program](##Running-the-program)
+4. [Running Test](##Running-tests)
+5. [Design Choices](##Design-choices)
+6. [Challenged Faced](##Challenged-Faced)
+7. [Possible Improvements](##Possible-Improvements)
+8. [Resources Used](##Resourced-Used)
+
 
 # Requirements
 ## Functional Requirements
@@ -134,6 +145,12 @@ I fetch tickets from the API only when required, for the following reasons:
 - **No Caching**: I was unable to find some field analogous to `last_modified` on each ticket object. If something like that were to exist, I could implement a caching feature that checks if the ticket information on local storage matches the information on the server by comparing the `last_modified` field, and only retrieve the ticket when the local information is outdated
 
 Therefore, I request for certain tickets only when they are requested as there is no caching implemented in the program. This ensures both storage and bandwidth is not wasted, and that all ticket information is up-to-date.
+
+### Assumptions
+
+- The Zendesk API will use the same URLs for GET requests
+- Return codes are constant
+- Data returned will always be the same structure
 
 
 ## Challenges Faced
