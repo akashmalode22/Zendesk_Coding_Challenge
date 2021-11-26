@@ -60,7 +60,7 @@ class RetrieveTickets:
 
         return [user, pwd]
 
-    def getResponseFromServer(self, url):
+    def getRawResponseFromServer(self, url):
         """Does a GET request using url specified
 
         Retrieves user and password for authentication. Does
@@ -71,9 +71,8 @@ class RetrieveTickets:
             url (string): url to call GET request at
 
         Returns:
-            response (JSON object): response from API at
-                                    specified URL in JSON
-                                    format
+            response (JSON object): response from API in
+                                    its raw format
         """
 
         [user, pwd] = self.getCredentials()
@@ -82,6 +81,22 @@ class RetrieveTickets:
 
         if response.status_code != errormacros.GET_SUCCESS_CODE:
             Printer.displayResponseErrors(response.status_code)
+
+        return response
+
+    def getResponseFromServer(self, url):
+        """Converts server response to JSON
+
+        Args:
+            url (string): url to call GET request at
+
+        Returns:
+            response (JSON object): response from API at
+                                    specified URL in JSON
+                                    format
+        """
+
+        response = self.getRawResponseFromServer(url)
 
         return response.json()
 

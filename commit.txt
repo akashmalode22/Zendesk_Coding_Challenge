@@ -1,4 +1,4 @@
-Documentation: Add coverage module into requirements.txt
+Unittest: Mock API with patching requests.get
 
 This commit:
-  - Adds coverage module dependency into requirements.txt
+  - Refactors fetching method in modes.py to unittest with mock.patch
