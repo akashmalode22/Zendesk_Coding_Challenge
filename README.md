@@ -9,13 +9,13 @@ This is a requirement challenge for Zendesk's summer internship for 2022.
 ## Sections
 
 1. [Project Requirements](#Requirements)
-2. [Installation Prerequisites](##Installation-prerequisites)
-3. [Running the Program](##Running-the-program)
-4. [Running Test](##Running-tests)
-5. [Design Choices](##Design-choices)
-6. [Challenged Faced](##Challenged-Faced)
-7. [Possible Improvements](##Possible-Improvements)
-8. [Resources Used](##Resourced-Used)
+2. [Installation Prerequisites](#Installation-prerequisites)
+3. [Running the Program](#Running-the-program)
+4. [Running Test](#Running-tests)
+5. [Design Choices](#Design-choices)
+6. [Challenged Faced](#Challenges-Faced)
+7. [Possible Improvements](#Possible-Improvements)
+8. [Resources Used](#Resources-Used)
 
 
 # Requirements
@@ -51,8 +51,12 @@ You will require the following programs and packages:
 
 If you have everything installed, you can skip to the next section. If you have any of these missing, please read the instructions:
 
+1. Download the repository to your local machine (within some folder):
 
- 1. **Install Python 3**
+	```
+	git clone https://github.com/akashmalode22/Zendesk_Coding_Challenge.git
+	```
+ 2. **Install Python 3**
 
 	Run the following command to see if you already have python3 installed:
 	
@@ -64,7 +68,7 @@ If you have everything installed, you can skip to the next section. If you have 
 	
 	Download and run the latest version of the python installer.
 
-2. **Install pip**
+3. **Install pip**
 
 	Run the following cURL command to download pip:
 	
@@ -74,25 +78,22 @@ If you have everything installed, you can skip to the next section. If you have 
 	
 	```python3 get-pip.py```
 
-3. **Install all dependencies**
+4. **Install all dependencies**
 
 	```pip install -r requirements.txt```
 
 	The `requirements.txt` file has the names of all required modules and their version numbers. Using `pip install` with the requirements file simplifies the dependency installation process.
 ## Running the program
 
-1. Download the repository to your local machine (within some folder):
 
-	```
-	git clone https://github.com/akashmalode22/Zendesk_Coding_Challenge.git
-	```
+1. Open `credentials.txt` and change the subdomain, user, and token to test with your own Zendesk account. The file has my credentials saved with the tickets test data provided by Zendesk, which will be used by default.
 
-2. Open `credentials.txt` and change the subdomain, user, and token to test with your own Zendesk account. The file has my credentials saved with the tickets test data provided by Zendesk.
-3. Run the program using the command
+2. Run the program using the command
 	```
 	python3 main.py
 	```
-	**NOTE: Be sure to run the program with `python3`. If you do not have python 3 as your default python version and if you run it with just `python`, you *may* get an error saying 		`ImportError: No module named tabulate`**
+	
+	**NOTE: Be sure to run the program with `python3`. If you do not have python3 as your default python version and if you run it with just `python`, you *may* get an error saying  `ImportError: No module named tabulate`**
 	
 
 ## Running tests

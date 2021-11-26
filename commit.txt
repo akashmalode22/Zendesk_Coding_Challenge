@@ -1,5 +1,4 @@
-README: Include sections and assumptions
+README: Restructure installation instructions
 
 This commit:
-  - Includes hyperlinks to skip to sections of the README file
-  - Adds assumptions sub-section
+  - Restructures installation instructions
