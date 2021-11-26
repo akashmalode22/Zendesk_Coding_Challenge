@@ -9,13 +9,13 @@ This is a requirement challenge for Zendesk's summer internship for 2022.
 ## Sections
 
 1. [Project Requirements](#Requirements)
-2. [Installation Prerequisites](##Installation-prerequisites)
-3. [Running the Program](##Running-the-program)
-4. [Running Test](##Running-tests)
-5. [Design Choices](##Design-choices)
-6. [Challenged Faced](##Challenged-Faced)
-7. [Possible Improvements](##Possible-Improvements)
-8. [Resources Used](##Resourced-Used)
+2. [Installation Prerequisites](#Installation-prerequisites)
+3. [Running the Program](#Running-the-program)
+4. [Running Test](#Running-tests)
+5. [Design Choices](#Design-choices)
+6. [Challenged Faced](#Challenged-Faced)
+7. [Possible Improvements](#Possible-Improvements)
+8. [Resources Used](#Resourced-Used)
 
 
 # Requirements
