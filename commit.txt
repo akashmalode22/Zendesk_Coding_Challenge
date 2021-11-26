@@ -1,5 +1,6 @@
-Documentation: Docstring comments for retrievetickets.py
+README: Installation and Running the program
 
 This commit:
-  - Adds docstring comments for all functions for retrievetickets.py
-  - Follows the Google Format for docstrings
+  - Updates the README to include all installation steps
+  - README includes steps required to run the program
+  - README includes steps required to run the test files
