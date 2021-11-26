@@ -1,4 +1,6 @@
-BUG FIX: Incorrect Page Number Displayed
+Unittest: New tests for modes.py
 
 This commit:
-  - Resets the page number when switching to main menu from pagination menu
+  - Adds new tests for modes.py functions
+  - Ignores some functions for unittest coverage because its constituent
+    functions are already unit tested (# pragma: no cover)

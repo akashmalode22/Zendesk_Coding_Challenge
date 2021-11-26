@@ -65,38 +65,48 @@ class TestModes(unittest.TestCase):
             False,
         )
 
+        self.mode.CURRENT_MODE = 6
+        self.assertEqual(self.mode.validateModeSelection("1"), False)
+
     def test_validateNextPageExists(self):
+        self.assertEqual(self.mode.validateNextPageExists(1, 50, 100), True)
+        self.assertEqual(self.mode.validateNextPageExists(75, 100, 101), True)
+        self.assertEqual(self.mode.validateNextPageExists(101, 101, 101), False)
+
         with self.assertRaises(TypeError):
             self.mode.validateNextPageExists(None, 25, 100)
 
         with self.assertRaises(IndexError):
             self.mode.validateNextPageExists(1, 50, 25)
-
-        self.assertEqual(self.mode.validateNextPageExists(1, 50, 100), True)
 
     def test_validatePreviousPageExists(self):
+        self.assertEqual(self.mode.validatePreviousPageExists(1, 50, 100), False)
+        self.assertEqual(self.mode.validatePreviousPageExists(25, 50, 101), True)
+
         with self.assertRaises(TypeError):
-            self.mode.validateNextPageExists(None, 25, 100)
+            self.mode.validatePreviousPageExists(None, "25", 100)
 
         with self.assertRaises(IndexError):
-            self.mode.validateNextPageExists(1, 50, 25)
-
-        self.assertEqual(self.mode.validateNextPageExists(1, 50, 100), True)
+            self.mode.validatePreviousPageExists(1, 50, 25)
 
     def test_ticketExists(self):
-        with self.assertRaises(TypeError):
-            self.mode.validateNextPageExists("25", 100)
-
         self.assertEqual(self.mode.ticketExists(30, 100), True)
         self.assertEqual(self.mode.ticketExists(-1, 100), False)
         self.assertEqual(self.mode.ticketExists(101, 100), False)
+        self.assertEqual(self.mode.ticketExists(101, 101), True)
+
+        with self.assertRaises(TypeError):
+            self.mode.validateNextPageExists("25", 100)
+            self.mode.validateNextPageExists(25, None)
 
     def test_requireMultiplePages(self):
+        self.assertEqual(self.mode.requireMultiplePages(100), True)
+        self.assertEqual(self.mode.requireMultiplePages(45), True)
+        self.assertEqual(self.mode.requireMultiplePages(15), False)
+
         with self.assertRaises(TypeError):
             self.mode.validateNextPageExists("10")
-
-        self.assertEqual(self.mode.requireMultiplePages(100), True)
-        self.assertEqual(self.mode.requireMultiplePages(15), False)
+            self.mode.validateNextPageExists(None)
 
     def test_changeMode(self):
         self.mode.changeMode(2)
@@ -110,6 +120,7 @@ class TestModes(unittest.TestCase):
 
         with self.assertRaises(IndexError):
             self.mode.changeMode(5)
+            self.mode.changeMode(-1)
 
     def test_exit(self):
         self.assertEqual(self.mode.exit("q"), True)

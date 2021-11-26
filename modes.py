@@ -170,7 +170,7 @@ class Modes:
         if not isinstance(user_input, int):
             raise TypeError("mode must be integer.")
 
-        if user_input > 4:
+        if user_input > 4 or user_input < 0:
             raise IndexError("mode does not exist.")
 
         Modes.CURRENT_MODE = user_input
@@ -215,7 +215,7 @@ class Modes:
 
         # Validate user input is one of the options provided
         if not self.validateModeSelection(user_input):
-            Printer.displayInvalidInput()
+            Printer.displayInvhandalidInput()
             return
 
         if self.exit(user_input):
@@ -225,7 +225,7 @@ class Modes:
         # Change mode based on user_input
         self.changeMode(int(user_input))
 
-    def handleAllTicketsMode(self, retriever):
+    def handleAllTicketsMode(self, retriever):  # pragma: no cover
         """Executes display all tickets mode.
 
         The program gets the existing number of tickets on the Zendesk account.
@@ -253,7 +253,9 @@ class Modes:
         else:
             self.changeMode(MODE_NO_PAGINATION)
 
-    def handleSelectedTicketMode(self, retriever, from_paging=False):
+    def handleSelectedTicketMode(
+        self, retriever, from_paging=False
+    ):  # pragma: no cover
         """Executes display a selected ticket mode.
 
         User is asked to enter a ticket ID, which is validated if the ticket ID
@@ -296,7 +298,7 @@ class Modes:
         # Switch back to main menu mode
         self.changeMode(MODE_MAIN_MENU)
 
-    def handleSinglePageMode(self, retriever):
+    def handleSinglePageMode(self, retriever):  # pragma: no cover
         """Executes display all tickets in a single page.
 
         API request is made to get all tickets. Details of all tickets are displayed.
@@ -316,7 +318,7 @@ class Modes:
 
         self.changeMode(MODE_MAIN_MENU)
 
-    def handleMultiplePagesMode(self, retriever):
+    def handleMultiplePagesMode(self, retriever):  # pragma: no cover
         """Executes display all tickets in multiple pages.
 
         API request is made to get tickets in a range (25 tickets). Details
