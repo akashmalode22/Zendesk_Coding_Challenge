@@ -13,9 +13,9 @@ This is a requirement challenge for Zendesk's summer internship for 2022.
 3. [Running the Program](#Running-the-program)
 4. [Running Test](#Running-tests)
 5. [Design Choices](#Design-choices)
-6. [Challenged Faced](#Challenged-Faced)
+6. [Challenged Faced](#Challenges-Faced)
 7. [Possible Improvements](#Possible-Improvements)
-8. [Resources Used](#Resourced-Used)
+8. [Resources Used](#Resources-Used)
 
 
 # Requirements
