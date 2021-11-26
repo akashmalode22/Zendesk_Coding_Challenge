@@ -1,6 +1,4 @@
-Unittest: New tests for modes.py
+Documentation: Add coverage module into requirements.txt
 
 This commit:
-  - Adds new tests for modes.py functions
-  - Ignores some functions for unittest coverage because its constituent
-    functions are already unit tested (# pragma: no cover)
+  - Adds coverage module dependency into requirements.txt
