@@ -1,4 +1,0 @@
-README: Restructure installation instructions
-
-This commit:
-  - Restructures installation instructions

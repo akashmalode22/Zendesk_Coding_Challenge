@@ -1,0 +1,4 @@
+Clean print statements
+
+This commit:
+  - Adds new lines and spaces to make print statements look cleaner

@@ -35,15 +35,13 @@
     - [DONE] Input/Output for each function
     - [DONE] Between lines if necessary
 
-Structure Files Better (within folders)
-
 [DONE] Modify README
     - [DONE] for requirements.txt
     - [DONE] include section hyperlinks at beginning
     - [DONE] include assumptions
 
-Fix Printer class usage
-
 Refactor more (?)
+
+README better (?)
 
 

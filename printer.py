@@ -82,12 +82,13 @@ class Printer:
                 textwrap.shorten(ticket["ticket"]["description"], width=100),
             ],
         ]
-
+        print()
         print(tabulate(table, tablefmt="grid"))
+        print()
 
     @staticmethod
     def displayOutOfRangeInput():
-        print("Ticket ID selected doesn't exist. Select another ticket ID...\n")
+        print("\nTicket ID selected doesn't exist. Select another ticket ID...\n")
 
     def displayAllTicketsInfo(tickets, number_of_tickets, current_page, total_pages):
         """Displays information of all tickets.
@@ -130,6 +131,7 @@ class Printer:
 
                 modified_tickets.append(single_ticket)
 
+        print()
         print(tabulate(modified_tickets, headers=["ID", "Subject", "By", "Dated"]))
         print("Page [", current_page, "/", total_pages, "]")
         print()

@@ -137,7 +137,7 @@ class RetrieveTickets:
 
         url = self.generateURL("/" + ticket_id)
 
-        print("Fetching ticket #", ticket_id, ". Please wait...\n")
+        print("\nFetching ticket #", ticket_id, ". Please wait...\n")
 
         data = self.getResponseFromServer(url)
 
