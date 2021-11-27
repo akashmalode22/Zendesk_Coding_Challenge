@@ -1,5 +1,6 @@
-Documentation: Add in-line comments for functions
+BUG FIX: Catching invalid user input type
 
 This commit:
-  - Adds in-line comments for certain lines to make it 
-    more understandable
+  - Catches ValueError if user input cannot be converted to
+    integer when selecting a ticket ID
+  - Fixes a Printer class function call typo

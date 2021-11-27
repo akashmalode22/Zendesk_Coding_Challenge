@@ -45,14 +45,22 @@ class Modes:
             if user_input in OPTIONS_PAGE_MENU:
                 return True
             if from_paging:
-                user_input = int(user_input)
+                try:
+                    user_input = int(user_input)
+                except ValueError:
+                    Printer.displayInvalidType()
+                    return False
                 if self.ticketExists(user_input, number_of_tickets):
                     return True
 
             return False
 
         if self.CURRENT_MODE == MODE_SELECTED_TICKET:
-            user_input = int(user_input)
+            try:
+                user_input = int(user_input)
+            except ValueError:
+                Printer.displayInvalidType()
+                return False
 
             if self.ticketExists(user_input, number_of_tickets):
                 return True
@@ -215,7 +223,7 @@ class Modes:
 
         # Validate user input is one of the options provided
         if not self.validateModeSelection(user_input):
-            Printer.displayInvhandalidInput()
+            Printer.displayInvalidInput()
             return
 
         if self.exit(user_input):

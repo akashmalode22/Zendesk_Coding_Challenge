@@ -53,6 +53,9 @@ class Printer:
     def displaySelectedTicketMessage(user_input):
         print("\nDisplaying ticket #" + user_input + "...\n")
 
+    def displayInvalidType():
+        print("\nPlease enter an integer...")
+
     @staticmethod
     def displayExitMessage():
         print("\n********************************************************")
