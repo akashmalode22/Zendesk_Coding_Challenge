@@ -82,6 +82,7 @@ class Printer:
                 textwrap.shorten(ticket["ticket"]["description"], width=100),
             ],
         ]
+
         print()
         print(tabulate(table, tablefmt="grid"))
         print()
@@ -109,6 +110,7 @@ class Printer:
 
         modified_tickets = []
 
+        # JSON object attributes differ if it is a single ticket
         if number_of_tickets == 1:
             single_ticket = [
                 tickets["id"],

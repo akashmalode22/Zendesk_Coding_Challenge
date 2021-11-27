@@ -194,6 +194,7 @@ class RetrieveTickets:
 
         data = self.getResponseFromServer(url)
 
+        # JSON object attributes differ when it is a single ticket
         if len(ids) == 1:
             return [data["ticket"], end_id - start_id + 1]
         else:
@@ -243,6 +244,7 @@ class RetrieveTickets:
                         Printer.displayNoNextPage()
                         continue
 
+                    # Increment current page number shown if user asks for next page
                     self.current_page += 1
 
                     [self.start_id, self.end_id] = utils.calculateNextPageBounds(
@@ -257,6 +259,7 @@ class RetrieveTickets:
                         Printer.displayNoPreviousPage()
                         continue
 
+                    # Decrement current page number shown if user asks for previous page
                     self.current_page -= 1
 
                     [self.start_id, self.end_id] = utils.calculatePreviousPageBounds(

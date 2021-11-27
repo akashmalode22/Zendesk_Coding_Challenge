@@ -1,4 +1,5 @@
-Clean print statements
+Documentation: Add in-line comments for functions
 
 This commit:
-  - Adds new lines and spaces to make print statements look cleaner
+  - Adds in-line comments for certain lines to make it 
+    more understandable

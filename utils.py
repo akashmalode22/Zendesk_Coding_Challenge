@@ -1,6 +1,5 @@
 import modes
 import retrievetickets
-import printer
 
 
 def initializeClassObjects():
@@ -185,8 +184,11 @@ def calculatePreviousPageBounds(start_id, end_id):
     if not isinstance(start_id, int) or not isinstance(end_id, int):
         raise TypeError("start_id and end_id must be integers.")
 
+    # Start ID for previous page is 25 tickets prior
     start_id = start_id - modes.TICKETS_PER_PAGE_LIMIT
 
+    # End ID for previous page is either 25 tickets prior
+    # or the offset of modulo 25 (Page Limit)
     if end_id % modes.TICKETS_PER_PAGE_LIMIT != 0:
         offset = end_id % modes.TICKETS_PER_PAGE_LIMIT
         end_id = end_id - offset
