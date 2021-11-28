@@ -13,7 +13,7 @@ This is a requirement challenge for Zendesk's summer internship for 2022.
 3. [Running the Program](#Running-the-program)
 4. [Running Test](#Running-tests)
 5. [Design Choices](#Design-choices)
-6. [Challenged Faced](#Challenges-Faced)
+6. [Challenges Faced](#Challenges-Faced)
 7. [Possible Improvements](#Possible-Improvements)
 8. [Resources Used](#Resources-Used)
 
@@ -38,7 +38,7 @@ This is a requirement challenge for Zendesk's summer internship for 2022.
 # Running the Ticket Viewer
 
 ## Installation prerequisites
-Assumption: The program is being run on a system running MacOS (or some linux system)
+**Assumption:** The program is being run on a system running MacOS (or some linux system)
 The following steps have been tested on MacOS. Steps may be different for Windows machines.
 
 You will require the following programs and packages:
@@ -60,7 +60,9 @@ If you have everything installed, you can skip to the next section. If you have 
 
 	Run the following command to see if you already have python3 installed:
 	
-	```python3 --version```
+	```
+	python3 --version
+	```
 	
 	If the command responds with some version number of python3, then you can move to the next step. If not, continue to install python3.
 	
@@ -72,21 +74,27 @@ If you have everything installed, you can skip to the next section. If you have 
 
 	Run the following cURL command to download pip:
 	
-	```curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py```
+	```
+	curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+	```
 
 	Execute the downloaded file using the command:
 	
-	```python3 get-pip.py```
+	```
+	python3 get-pip.py
+	```
 
 4. **Install all dependencies**
 
-	```pip install -r requirements.txt```
+	```
+	pip install -r requirements.txt
+	```
 
 	The `requirements.txt` file has the names of all required modules and their version numbers. Using `pip install` with the requirements file simplifies the dependency installation process.
 ## Running the program
 
 
-1. Open `credentials.txt` and change the subdomain, user, and token to test with your own Zendesk account. The file has my credentials saved with the tickets test data provided by Zendesk, which will be used by default.
+1. Open `credentials.txt` and change the subdomain, user, and token to test with your own Zendesk account. Please refer to the default data in the file, and input your credentials in the same format (without any spaces). The file has my credentials saved with the tickets test data provided by Zendesk, which will be used by default.
 
 2. Run the program using the command
 	```

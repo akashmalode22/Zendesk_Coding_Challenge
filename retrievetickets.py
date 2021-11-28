@@ -238,6 +238,7 @@ class RetrieveTickets:
 
                 if user_input == "n":
 
+                    # Check if next page exists
                     if not mode.validateNextPageExists(
                         self.start_id, self.end_id, self.number_of_tickets
                     ):
@@ -247,12 +248,14 @@ class RetrieveTickets:
                     # Increment current page number shown if user asks for next page
                     self.current_page += 1
 
+                    # Get Ticket ID bounds for next page
                     [self.start_id, self.end_id] = utils.calculateNextPageBounds(
                         self.last_ticket_shown, self.number_of_tickets
                     )
 
                 elif user_input == "p":
 
+                    # Check if previous page exists
                     if not mode.validatePreviousPageExists(
                         self.start_id, self.end_id, self.number_of_tickets
                     ):
@@ -262,15 +265,20 @@ class RetrieveTickets:
                     # Decrement current page number shown if user asks for previous page
                     self.current_page -= 1
 
+                    # Get Ticket ID bounds for previous page
                     [self.start_id, self.end_id] = utils.calculatePreviousPageBounds(
                         self.start_id, self.end_id
                     )
 
+                # Get tickets specified by start and end IDs
                 [tickets, number_of_tickets] = self.getTicketsInRange(
                     self.start_id, self.end_id
                 )
+
+                # Update last ticket shown for future ID range calculations
                 self.last_ticket_shown = self.end_id
 
+                # Display all the retrieved tickets
                 Printer.displayAllTicketsInfo(
                     tickets, number_of_tickets, self.current_page, self.total_pages
                 )

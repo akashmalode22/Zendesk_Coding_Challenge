@@ -1,6 +1,6 @@
-BUG FIX: Catching invalid user input type
+Documentation: In-line comments for paging options and README
 
 This commit:
-  - Catches ValueError if user input cannot be converted to
-    integer when selecting a ticket ID
-  - Fixes a Printer class function call typo
+  - Adds in-line comments for paging mode options to understand
+    the function's workflow
+  - Updates README for Installation Requirements and typos
