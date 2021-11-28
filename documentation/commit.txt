@@ -1,6 +1,6 @@
-BUG FIX: Incorrect pages shown when switching modes
+FINAL: Ready for submission
 
 This commit:
-  - Fixes the bug where pages and page numbers are displayed
-    incorrectly when switching between main menu mode and
-    all tickets mode
+  - Does final touches on the README
+  - Checks all files for final submission
+  - I enjoyed working on this project :)

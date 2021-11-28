@@ -97,7 +97,8 @@ Otherwise, continue steps 1-4:
 ## Running the program
 
 
-1. Open `credentials.txt` and change the subdomain, user, and token to test with your own Zendesk account. Please refer to the default data in the file, and input your credentials in the same format (without any spaces). The file has my credentials saved with the tickets test data provided by Zendesk, which will be used by default.
+1. Open `credentials.txt` and change the subdomain, user, and token to test with your own Zendesk account. Please refer to the default data in the file, and input your credentials in the same format. **Please do not use any spaces when changing the `credentials.txt` file!** 
+The file has my credentials saved with the tickets test data provided by Zendesk, which will be used by default.
 
 2. Run the program using the command
 	```

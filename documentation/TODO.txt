@@ -1,3 +1,4 @@
+-- Ready for submission
 
 [DONE] Implement each of the modes now.
     [DONE] Start with displaying 1 ticket
@@ -40,8 +41,5 @@
     - [DONE] include section hyperlinks at beginning
     - [DONE] include assumptions
 
-Refactor more (?)
-
-README better (?)
 
 
