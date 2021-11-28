@@ -9,9 +9,13 @@ This is a requirement challenge for Zendesk's summer internship for 2022.
 ## My Details
 
 **Name:** Akash Arun Malode
+
 **Email:** amalode@purdue.edu
+
 **Secondary Email:** akashmalode22@gmail.com
+
 **University:** Purdue University
+
 
 ## Sections
 
