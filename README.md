@@ -49,9 +49,12 @@ You will require the following programs and packages:
 - requests (module)
 - pytest
 
-If you have everything installed, you can skip to the next section. If you have any of these missing, please read the instructions:
+Everything will be installed with `pip install`using the `requirements.txt` file.
 
-1. Download the repository to your local machine (within some folder):
+If you have python and pip installed, only follow steps 1 *and* 4. 
+Otherwise, continue steps 1-4:
+
+1. **Download the repository to your local machine (within some folder):**
 
 	```
 	git clone https://github.com/akashmalode22/Zendesk_Coding_Challenge.git

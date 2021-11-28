@@ -1,6 +1,5 @@
-Documentation: In-line comments for paging options and README
+README: Add more information to install dependencies
 
 This commit:
-  - Adds in-line comments for paging mode options to understand
-    the function's workflow
-  - Updates README for Installation Requirements and typos
+  - Adds more information to the "Install prerequesites" section
+    to make it easier to understand what steps to follow
