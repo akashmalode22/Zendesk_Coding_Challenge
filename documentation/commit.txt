@@ -1,5 +1,6 @@
-README: Add more information to install dependencies
+BUG FIX: Incorrect pages shown when switching modes
 
 This commit:
-  - Adds more information to the "Install prerequesites" section
-    to make it easier to understand what steps to follow
+  - Fixes the bug where pages and page numbers are displayed
+    incorrectly when switching between main menu mode and
+    all tickets mode

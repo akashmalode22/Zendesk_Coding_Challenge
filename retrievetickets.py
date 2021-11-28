@@ -33,6 +33,7 @@ class RetrieveTickets:
             raise TypeError("url_sublink must be a string.")
 
         subdomain = utils.getSubdomainFromFile("credentials.txt")
+
         return (
             "https://"
             + subdomain
@@ -230,7 +231,12 @@ class RetrieveTickets:
                 continue
 
             elif user_input == "m":
+
+                # Reset all indices before main menu
                 self.current_page = 1
+                self.start_id = 1
+                self.end_id = 25
+
                 mode.changeMode(modes.MODE_MAIN_MENU)
                 return
 
